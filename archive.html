@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Local library · Chatlog Printer</title>
+    <link rel="stylesheet" href="archive.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div>
+          <p class="eyebrow">Chatlog Printer</p>
+          <h1>Your local library</h1>
+        </div>
+      </div>
+      <button id="backup-button" class="button button-secondary" type="button">Download library JSON</button>
+    </header>
+
+    <main>
+      <section class="library-tools" aria-label="Library controls">
+        <label class="search-field">
+          <span class="sr-only">Search saved conversations</span>
+          <span aria-hidden="true">⌕</span>
+          <input id="search-input" type="search" autocomplete="off" placeholder="Search titles and transcript text">
+        </label>
+        <p id="library-count" class="library-count" aria-live="polite"></p>
+      </section>
+
+      <aside class="local-notice">
+        <strong>Local means this Chrome profile.</strong>
+        Captures are not synced or separately encrypted, and uninstalling the extension removes them. Exported files and library JSON are plaintext and remain wherever you save them.
+      </aside>
+
+      <section id="empty-state" class="empty-state" hidden>
+        <p class="empty-kicker">The shelves are quiet.</p>
+        <h2>No conversations saved yet.</h2>
+        <p>Open a Claude conversation, choose the Chatlog Printer toolbar button, and save it locally.</p>
+      </section>
+
+      <section id="conversation-list" class="conversation-list" aria-label="Saved conversations"></section>
+    </main>
+
+    <template id="conversation-card-template">
+      <article class="conversation-card">
+        <div class="card-rule" aria-hidden="true"></div>
+        <div class="card-copy">
+          <div class="card-meta-row">
+            <span class="provider-badge">Claude</span>
+            <span class="completeness-badge"></span>
+          </div>
+          <h2 class="card-title"></h2>
+          <p class="card-summary"></p>
+          <p class="card-warning" hidden></p>
+          <p class="card-date"></p>
+        </div>
+        <div class="card-actions">
+          <a class="button button-primary view-button" href="#">View / print</a>
+          <button class="button button-secondary markdown-button" type="button">Markdown</button>
+          <button class="button button-secondary html-button" type="button">HTML</button>
+          <button class="button button-quiet json-button" type="button">JSON</button>
+          <button class="button button-danger delete-button" type="button">Delete</button>
+        </div>
+      </article>
+    </template>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+    <script src="store.js"></script>
+    <script src="render.js"></script>
+    <script src="archive.js"></script>
+  </body>
+</html>

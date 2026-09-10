@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Transcript · Chatlog Printer</title>
+    <link rel="stylesheet" href="transcript.css">
+  </head>
+  <body>
+    <header class="transcript-toolbar" aria-label="Transcript controls">
+      <a class="back-link" href="archive.html">← Local library</a>
+      <div class="toolbar-actions">
+        <button id="markdown-button" type="button">Markdown</button>
+        <button id="html-button" type="button">HTML</button>
+        <button id="json-button" type="button">JSON</button>
+        <button id="print-button" class="print-button" type="button">Print / Save PDF</button>
+      </div>
+    </header>
+
+    <p id="loading-status" class="loading" role="status" aria-live="polite">Preparing transcript…</p>
+    <main id="transcript-root" class="transcript-root">
+    </main>
+
+    <script src="store.js"></script>
+    <script src="render.js"></script>
+    <script src="transcript.js"></script>
+  </body>
+</html>

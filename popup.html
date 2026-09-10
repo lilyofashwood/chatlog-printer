@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chatlog Printer</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="popup-shell">
+      <header class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <div>
+          <p class="eyebrow">Local conversation archive</p>
+          <h1>Chatlog Printer</h1>
+        </div>
+      </header>
+
+      <section class="intro" aria-labelledby="intro-title">
+          <h2 id="intro-title">Keep the active thread.</h2>
+        <p>Capture and validate Claude's selected message branch—not just the messages currently visible on screen.</p>
+      </section>
+
+      <div id="status" class="status" role="status" aria-live="polite">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span id="status-text">Checking the current page…</span>
+      </div>
+
+      <section id="receipt" class="receipt" role="dialog" aria-labelledby="receipt-title" hidden>
+        <p class="receipt-kicker">Capture receipt</p>
+        <h2 id="receipt-title">Review before saving</h2>
+        <dl class="receipt-facts">
+          <div><dt>Message chain</dt><dd id="receipt-chain"></dd></div>
+          <div><dt>Content fidelity</dt><dd id="receipt-fidelity"></dd></div>
+          <div><dt>Messages found</dt><dd id="receipt-count"></dd></div>
+        </dl>
+        <ul id="receipt-warnings" class="receipt-warnings"></ul>
+        <div class="receipt-actions">
+          <button id="receipt-save" class="button button-primary" type="button">Save marked capture</button>
+          <button id="receipt-cancel" class="button button-secondary" type="button">Discard</button>
+        </div>
+      </section>
+
+      <div id="actions" class="actions">
+        <button id="save-button" class="button button-primary" type="button" disabled>
+          <span>Save locally</span>
+          <span aria-hidden="true">↓</span>
+        </button>
+        <button id="print-button" class="button button-secondary" type="button" disabled>
+          Save &amp; print
+        </button>
+        <button id="library-button" class="button button-quiet" type="button">
+          Open local library
+        </button>
+      </div>
+
+      <p class="privacy-note">No Chatlog Printer account or analytics. Copies stay in this Chrome profile, are not synced or separately encrypted, and disappear if you uninstall unless you export or print them.</p>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

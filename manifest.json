@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Chatlog Printer",
+  "version": "0.1.0",
+  "description": "Save Claude's active conversation branch locally and print clean, portable transcripts.",
+  "incognito": "not_allowed",
+  "minimum_chrome_version": "102",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "unlimitedStorage"
+  ],
+  "action": {
+    "default_title": "Save this Claude conversation",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "archive.html",
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; frame-src 'none'"
+  }
+}
