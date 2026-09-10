@@ -225,11 +225,17 @@
 
         if (["create", "rewrite"].includes(command) && typeof input.content === "string") {
           state.content = input.content;
+          state.unresolved = false;
+          state.unapplied = [];
         } else if (command === "update") {
           if (typeof input.content === "string") {
             state.content = input.content;
-          } else if (typeof input.old_str === "string" && typeof input.new_str === "string" && state.content.includes(input.old_str)) {
-            state.content = state.content.replace(input.old_str, input.new_str);
+            state.unresolved = false;
+            state.unapplied = [];
+          } else if (typeof input.old_str === "string" && input.old_str.length > 0
+            && typeof input.new_str === "string"
+            && state.content.split(input.old_str).length === 2) {
+            state.content = state.content.replace(input.old_str, () => input.new_str);
           } else {
             state.unresolved = true;
             state.unapplied.push({ old_str: input.old_str, new_str: input.new_str });

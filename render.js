@@ -128,13 +128,17 @@
   }
 
   function renderInline(value) {
+    let working = String(value ?? "");
+    let marker = "\uE000";
+    while (working.includes(marker)) {
+      marker += "\uE000";
+    }
     const tokens = [];
     const token = (html) => {
       const index = tokens.push(html) - 1;
-      return `\uE000${index}\uE001`;
+      return `${marker}${index}\uE001`;
     };
 
-    let working = String(value ?? "");
     working = working.replace(/(`+)([^`\n]*?)\1/g, (_match, _ticks, code) => token(`<code>${escapeHtml(code)}</code>`));
     working = working.replace(/\[([^\]\n]+)\]\(([^)\s]+)(?:\s+["'][^"']*["'])?\)/g, (match, label, href) => {
       const safeHref = sanitizeUrl(href);
@@ -145,7 +149,7 @@
     });
 
     let output = renderEmphasis(escapeHtml(working));
-    output = output.replace(/\uE000(\d+)\uE001/g, (_match, index) => tokens[Number(index)] || "");
+    output = output.replace(new RegExp(`${marker}(\\d+)\uE001`, "g"), (_match, index) => tokens[Number(index)] || "");
     return output;
   }
 

@@ -2,7 +2,19 @@
 
 Chatlog Printer is a local-first Chrome extension for saving Claude's readable active branch and turning it into a clean, printable transcript.
 
-The current build is a working unpacked-extension prototype. It is intentionally Claude-only while the capture path is hardened.
+The current build is **v0.1.1**, a working unpacked extension for private review. It is Claude-only while the capture path is hardened.
+
+*∿ the paper remembers ∿*
+
+## Try the demo
+
+Run this from the repository, then open the printed localhost address:
+
+```sh
+python3 scripts/serve-demo.py
+```
+
+The demo at `http://127.0.0.1:8765/` uses invented conversation data and the extension's actual storage, rendering, and export code. You can save the sample, search the demo library, download HTML, or print it. It does not connect to Claude. Its browser-origin library is separate from the installed extension's library.
 
 ## What it does
 
@@ -27,7 +39,7 @@ Chatlog Printer asks Claude's own same-origin conversation endpoint for the stru
 1. Open `chrome://extensions` in Google Chrome.
 2. Turn on **Developer mode**.
 3. Choose **Load unpacked**.
-4. Select this `chatlog-printer` directory.
+4. Select the extracted `chatlog-printer-0.1.1` release folder containing `manifest.json` (or this source directory during development).
 5. Pin Chatlog Printer from Chrome's extensions menu if you want the button visible.
 
 No build step or package installation is required.
@@ -111,6 +123,16 @@ With ordinary branded Chrome 137+, the command runs the browser/IndexedDB suite 
 
 Current coverage includes active-branch reconstruction, absent/missing-parent failure, artifact revision folding, code/attachment whitespace, citation sanitization, unknown-block preservation, hostile HTML and unsafe URL escaping, fenced code, tables, script-free standalone HTML, and IndexedDB snapshot preservation.
 
+The v0.1.1 suite also checks literal private-use Unicode and ambiguous/literal artifact patches: **21/21 browser tests pass**. The real Manifest V3 service worker was exercised in Chrome for Testing 151.0.7922.34.
+
+For the packaged extension's integration checks, install the development-only Playwright dependency in a disposable environment, install its Chromium browser, build the release, and run:
+
+```sh
+node scripts/verify-release.cjs
+```
+
+That check loads `dist/chatlog-printer-0.1.1` in a temporary Chrome profile, verifies the worker's sender restriction, runs the packaged Claude adapter against synthetic intercepted responses, and exercises local save/search/view/HTML-download/delete. It also checks the demo at desktop and mobile widths. It never signs into Claude; synthetic fixture success is not evidence of authenticated capture. Set `CHATLOG_CHROME_BIN` if the test browser is installed elsewhere. Set `CHATLOG_PRINT_QA=1` to write a sample PDF for visual review.
+
 The parser still needs sanitized fixtures captured from multiple real Claude account/conversation shapes before a Chrome Web Store release.
 
 ## Known limitations
@@ -142,6 +164,15 @@ See [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md) for additional technical referenc
 
 ## Release path
 
+Build the original paper-mark icons and the deterministic release package:
+
+```sh
+python3 scripts/build-icons.py
+python3 scripts/package-release.py
+```
+
+The ZIP, matching unpacked folder, and SHA-256 checksum are written to `dist/`. Packaging uses an explicit 22-file allowlist, so demos, tests, scripts, Git metadata, and local captures cannot enter the extension ZIP. See [RELEASE.md](RELEASE.md) for this review build's evidence and remaining work, and [CHANGELOG.md](CHANGELOG.md) for changes.
+
 Before publishing broadly:
 
 1. Test against a fixture matrix and several long live conversations.
@@ -149,7 +180,6 @@ Before publishing broadly:
 3. Add import/restore and storage health indicators.
 4. Decide how to package attachment and artifact binaries without remote references.
 5. Complete Chrome Web Store privacy disclosures and an accurate hosted privacy policy.
-6. Add independent branding icons and store assets.
-7. Package a release ZIP without development tests/scripts and test that exact artifact in Chrome for Testing.
+6. Add Chrome Web Store screenshots and other listing assets; original extension icons are included.
 
 Chatlog Printer is not affiliated with or endorsed by Anthropic.

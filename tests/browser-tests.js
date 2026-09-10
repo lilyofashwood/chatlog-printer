@@ -165,6 +165,28 @@
     assert(html.includes("<strong>safe</strong>"), "safe Markdown rendered");
   });
 
+  test("preserves private-use Unicode without confusing it with Markdown tokens", () => {
+    const text = "\uE0000\uE001 𝓵𝓲𝓵𝔂 a\u0308 🧑🏽‍💻 \uE000\uE00042\uE001";
+    const host = document.createElement("div");
+    host.innerHTML = ChatlogRender.renderInline(`${text} **paper** and \`ink\``);
+    assertEqual(host.textContent, `${text} paper and ink`, "literal Unicode is unchanged");
+  });
+
+  test("artifact patches preserve replacement literals and report ambiguous positions", () => {
+    const block = (input) => ({ type: "tool_use", name: "artifacts", input: { id: "patch", ...input } });
+    const states = ChatlogCaptureCore.collectArtifactStates([{ content: [
+      block({ command: "create", content: "hello world" }),
+      block({ command: "update", old_str: "world", new_str: "$& $$ $` $'" })
+    ] }]);
+    assertEqual(states.get("patch").content, "hello $& $$ $` $'", "replacement syntax stays literal");
+    const ambiguous = ChatlogCaptureCore.collectArtifactStates([{ content: [
+      block({ command: "create", content: "repeat repeat" }),
+      block({ command: "update", old_str: "repeat", new_str: "which one?" })
+    ] }]).get("patch");
+    assertEqual(ambiguous.content, "repeat repeat", "ambiguous source preserved");
+    assertEqual(ambiguous.unresolved, true, "ambiguity disclosed");
+  });
+
   test("renders citation metadata while rejecting an unsafe citation URL", () => {
     const record = {
       title: "Citation test",

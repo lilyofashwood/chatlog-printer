@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+    <title>Chatlog Printer · keep the thread</title>
+    <link rel="stylesheet" href="transcript.css">
+    <link rel="stylesheet" href="demo.css">
+  </head>
+  <body>
+    <header class="demo-header">
+      <a class="demo-brand" href="index.html"><img src="icons/icon-48.png" width="40" height="40" alt=""> Chatlog Printer</a>
+      <a href="archive.html">Open demo library ↗</a>
+    </header>
+    <main>
+      <section class="demo-intro">
+        <p class="document-kicker">A small press for long conversations · v0.1.1</p>
+        <h1>Keep the thread.<br>Give it a page.</h1>
+        <p class="demo-lede">Save Claude conversations on your computer. Keep the code spacing, the tables, the curious turns. Print a clean transcript you can actually read.</p>
+        <div class="demo-actions">
+          <button id="save-demo" type="button">Try the local library ↓</button>
+          <button id="print-demo" type="button">Print sample / Save PDF</button>
+          <button id="html-demo" type="button">Download sample HTML</button>
+        </div>
+        <p id="demo-status" class="demo-note" role="status">This is an invented sample. Trying it saves only this sample in this browser's demo library; it does not connect to Claude.</p>
+        <details class="install-note">
+          <summary>Install the Chrome extension</summary>
+          <ol>
+            <li>Download the private release ZIP from the repository's Releases page and extract it.</li>
+            <li>Open <code>chrome://extensions</code>, enable Developer mode, and choose <strong>Load unpacked</strong>.</li>
+            <li>Select the extracted folder containing <code>manifest.json</code>.</li>
+            <li>Open a Claude conversation and choose Chatlog Printer from the toolbar.</li>
+          </ol>
+          <p>The demo and installed extension have separate local libraries. The extension still needs testing against a signed-in Claude conversation; this sample does not prove live capture.</p>
+        </details>
+      </section>
+      <div class="sample-label">↓ An invented conversation, rendered by the same code as your exports</div>
+      <div id="transcript-root"></div>
+    </main>
+    <footer class="demo-footer"><span>∿ the paper remembers ∿</span><a href="PRIVACY.md">Privacy</a><a href="README.md">Documentation</a></footer>
+    <script src="store.js"></script>
+    <script src="render.js"></script>
+    <script src="demo.js"></script>
+  </body>
+</html>
