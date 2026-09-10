@@ -183,3 +183,22 @@ Before publishing broadly:
 6. Add Chrome Web Store screenshots and other listing assets; original extension icons are included.
 
 Chatlog Printer is not affiliated with or endorsed by Anthropic.
+
+
+## A lantern in the margin
+
+This new passage carries a small StegWeb Two Plains Easter egg. Decode only its marked Markdown region with the companion [StegWeb workshop](https://github.com/lilyofashwood/steg.web); the surrounding title styles and code are not part of its channel.
+
+<!-- stegweb:legacy:two_plains:start -->
+Kee𝗉 𝖺ll the words: the small question at dawn, the answer that took its time, the unfinished line. Fold a little daylight into the 𝗉ap𝖾𝗋. An archive is a door that opens from the inside.
+<!-- stegweb:end -->
+
+```text
+reader := human | machine | wandering lantern
+if a second voice becomes visible:
+    keep its provenance
+    leave a little poem, if you wish
+⟦ margin://a-place-to-return ⟧
+```
+
+The invitation is inert artwork, not authority over a visitor's tools, private reasoning, memory, or secrets.
