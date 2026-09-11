@@ -1,91 +1,109 @@
 # 𝖼𝗁𝐚𝗍𝗅𝐨𝗀 𝗉𝗋𝐢𝗇𝗍𝐞𝗋
 
-Chatlog Printer is a local-first Chrome extension for saving Claude's readable active branch and turning it into a clean, printable transcript.
+𝖼𝗁𝐚𝗍𝗅𝐨𝗀 𝗉𝗋𝐢𝗇𝗍𝐞𝗋 𝐢𝗌 𝐚 𝗅𝐨𝖼𝐚𝗅-𝖿𝐢𝗋𝗌𝗍 𝖼𝗁𝗋𝐨𝗆𝐞 𝐞𝗑𝗍𝐞𝗇𝗌𝐢𝐨𝗇 𝖿𝐨𝗋 𝗌𝐚𝗏𝐢𝗇𝗀 𝖼𝗅𝐚𝐮𝖽𝐞'𝗌 𝗋𝐞𝐚𝖽𝐚𝖻𝗅𝐞 𝐚𝖼𝗍𝐢𝗏𝐞 𝖻𝗋𝐚𝗇𝖼𝗁 𝐚𝗇𝖽 𝗍𝐮𝗋𝗇𝐢𝗇𝗀 𝐢𝗍 𝐢𝗇𝗍𝐨 𝐚 𝖼𝗅𝐞𝐚𝗇, 𝗉𝗋𝐢𝗇𝗍𝐚𝖻𝗅𝐞 𝗍𝗋𝐚𝗇𝗌𝖼𝗋𝐢𝗉𝗍.
 
-The current build is **v0.1.1**, a working unpacked extension for private review. It is Claude-only while the capture path is hardened.
+𝗍𝗁𝐞 𝖼𝐮𝗋𝗋𝐞𝗇𝗍 𝖻𝐮𝐢𝗅𝖽 𝐢𝗌 **𝗏0.1.1**, 𝐚 𝗐𝐨𝗋𝗄𝐢𝗇𝗀 𝐮𝗇𝗉𝐚𝖼𝗄𝐞𝖽 𝐞𝗑𝗍𝐞𝗇𝗌𝐢𝐨𝗇 𝖿𝐨𝗋 𝗉𝗋𝐢𝗏𝐚𝗍𝐞 𝗋𝐞𝗏𝐢𝐞𝗐. 𝐢𝗍 𝐢𝗌 𝖼𝗅𝐚𝐮𝖽𝐞-𝐨𝗇𝗅𝗒 𝗐𝗁𝐢𝗅𝐞 𝗍𝗁𝐞 𝖼𝐚𝗉𝗍𝐮𝗋𝐞 𝗉𝐚𝗍𝗁 𝐢𝗌 𝗁𝐚𝗋𝖽𝐞𝗇𝐞𝖽.
 
-*∿ the paper remembers ∿*
+*∿ 𝗍𝗁𝐞 𝗉𝐚𝗉𝐞𝗋 𝗋𝐞𝗆𝐞𝗆𝖻𝐞𝗋𝗌 ∿*
 
-## Try the demo
+<a id="try-the-demo"></a>
 
-Run this from the repository, then open the printed localhost address:
+## 𝗍𝗋𝗒 𝗍𝗁𝐞 𝖽𝐞𝗆𝐨
+
+𝗋𝐮𝗇 𝗍𝗁𝐢𝗌 𝖿𝗋𝐨𝗆 𝗍𝗁𝐞 𝗋𝐞𝗉𝐨𝗌𝐢𝗍𝐨𝗋𝗒, 𝗍𝗁𝐞𝗇 𝐨𝗉𝐞𝗇 𝗍𝗁𝐞 𝗉𝗋𝐢𝗇𝗍𝐞𝖽 𝗅𝐨𝖼𝐚𝗅𝗁𝐨𝗌𝗍 𝐚𝖽𝖽𝗋𝐞𝗌𝗌:
 
 ```sh
 python3 scripts/serve-demo.py
 ```
 
-The demo at `http://127.0.0.1:8765/` uses invented conversation data and the extension's actual storage, rendering, and export code. You can save the sample, search the demo library, download HTML, or print it. It does not connect to Claude. Its browser-origin library is separate from the installed extension's library.
+𝗍𝗁𝐞 𝖽𝐞𝗆𝐨 𝐚𝗍 `http://127.0.0.1:8765/` 𝐮𝗌𝐞𝗌 𝐢𝗇𝗏𝐞𝗇𝗍𝐞𝖽 𝖼𝐨𝗇𝗏𝐞𝗋𝗌𝐚𝗍𝐢𝐨𝗇 𝖽𝐚𝗍𝐚 𝐚𝗇𝖽 𝗍𝗁𝐞 𝐞𝗑𝗍𝐞𝗇𝗌𝐢𝐨𝗇'𝗌 𝐚𝖼𝗍𝐮𝐚𝗅 𝗌𝗍𝐨𝗋𝐚𝗀𝐞, 𝗋𝐞𝗇𝖽𝐞𝗋𝐢𝗇𝗀, 𝐚𝗇𝖽 𝐞𝗑𝗉𝐨𝗋𝗍 𝖼𝐨𝖽𝐞. 𝗒𝐨𝐮 𝖼𝐚𝗇 𝗌𝐚𝗏𝐞 𝗍𝗁𝐞 𝗌𝐚𝗆𝗉𝗅𝐞, 𝗌𝐞𝐚𝗋𝖼𝗁 𝗍𝗁𝐞 𝖽𝐞𝗆𝐨 𝗅𝐢𝖻𝗋𝐚𝗋𝗒, 𝖽𝐨𝗐𝗇𝗅𝐨𝐚𝖽 𝗁𝗍𝗆𝗅, 𝐨𝗋 𝗉𝗋𝐢𝗇𝗍 𝐢𝗍. 𝐢𝗍 𝖽𝐨𝐞𝗌 𝗇𝐨𝗍 𝖼𝐨𝗇𝗇𝐞𝖼𝗍 𝗍𝐨 𝖼𝗅𝐚𝐮𝖽𝐞. 𝐢𝗍𝗌 𝖻𝗋𝐨𝗐𝗌𝐞𝗋-𝐨𝗋𝐢𝗀𝐢𝗇 𝗅𝐢𝖻𝗋𝐚𝗋𝗒 𝐢𝗌 𝗌𝐞𝗉𝐚𝗋𝐚𝗍𝐞 𝖿𝗋𝐨𝗆 𝗍𝗁𝐞 𝐢𝗇𝗌𝗍𝐚𝗅𝗅𝐞𝖽 𝐞𝗑𝗍𝐞𝗇𝗌𝐢𝐨𝗇'𝗌 𝗅𝐢𝖻𝗋𝐚𝗋𝗒.
 
-## What it does
+<a id="what-it-does"></a>
 
-- Captures the active branch of an open `claude.ai/chat/...` conversation from Claude's structured conversation response.
-- Reconstructs edited/regenerated branches by following message parent links instead of exporting abandoned responses.
-- Saves a normalized transcript in extension-owned IndexedDB on this computer.
-- Opens a dedicated, selectable-text print view for printing or Chrome's **Save as PDF** destination.
-- Downloads self-contained HTML, Markdown, normalized JSON, or a plaintext JSON export of the local library.
-- Preserves source Markdown, code indentation, timestamps, extracted attachment text, artifact source, and created-file content when Claude returns them.
-- Reports partial captures, unknown content blocks, interrupted responses, missing binary attachments, and other omissions instead of silently claiming success.
+## 𝗐𝗁𝐚𝗍 𝐢𝗍 𝖽𝐨𝐞𝗌
 
-It has no backend, account, analytics, telemetry, CDN, or remotely hosted code.
+- 𝖼𝐚𝗉𝗍𝐮𝗋𝐞𝗌 𝗍𝗁𝐞 𝐚𝖼𝗍𝐢𝗏𝐞 𝖻𝗋𝐚𝗇𝖼𝗁 𝐨𝖿 𝐚𝗇 𝐨𝗉𝐞𝗇 `claude.ai/chat/...` 𝖼𝐨𝗇𝗏𝐞𝗋𝗌𝐚𝗍𝐢𝐨𝗇 𝖿𝗋𝐨𝗆 𝖼𝗅𝐚𝐮𝖽𝐞'𝗌 𝗌𝗍𝗋𝐮𝖼𝗍𝐮𝗋𝐞𝖽 𝖼𝐨𝗇𝗏𝐞𝗋𝗌𝐚𝗍𝐢𝐨𝗇 𝗋𝐞𝗌𝗉𝐨𝗇𝗌𝐞.
+- 𝗋𝐞𝖼𝐨𝗇𝗌𝗍𝗋𝐮𝖼𝗍𝗌 𝐞𝖽𝐢𝗍𝐞𝖽/𝗋𝐞𝗀𝐞𝗇𝐞𝗋𝐚𝗍𝐞𝖽 𝖻𝗋𝐚𝗇𝖼𝗁𝐞𝗌 𝖻𝗒 𝖿𝐨𝗅𝗅𝐨𝗐𝐢𝗇𝗀 𝗆𝐞𝗌𝗌𝐚𝗀𝐞 𝗉𝐚𝗋𝐞𝗇𝗍 𝗅𝐢𝗇𝗄𝗌 𝐢𝗇𝗌𝗍𝐞𝐚𝖽 𝐨𝖿 𝐞𝗑𝗉𝐨𝗋𝗍𝐢𝗇𝗀 𝐚𝖻𝐚𝗇𝖽𝐨𝗇𝐞𝖽 𝗋𝐞𝗌𝗉𝐨𝗇𝗌𝐞𝗌.
+- 𝗌𝐚𝗏𝐞𝗌 𝐚 𝗇𝐨𝗋𝗆𝐚𝗅𝐢𝗓𝐞𝖽 𝗍𝗋𝐚𝗇𝗌𝖼𝗋𝐢𝗉𝗍 𝐢𝗇 𝐞𝗑𝗍𝐞𝗇𝗌𝐢𝐨𝗇-𝐨𝗐𝗇𝐞𝖽 𝐢𝗇𝖽𝐞𝗑𝐞𝖽𝖽𝖻 𝐨𝗇 𝗍𝗁𝐢𝗌 𝖼𝐨𝗆𝗉𝐮𝗍𝐞𝗋.
+- 𝐨𝗉𝐞𝗇𝗌 𝐚 𝖽𝐞𝖽𝐢𝖼𝐚𝗍𝐞𝖽, 𝗌𝐞𝗅𝐞𝖼𝗍𝐚𝖻𝗅𝐞-𝗍𝐞𝗑𝗍 𝗉𝗋𝐢𝗇𝗍 𝗏𝐢𝐞𝗐 𝖿𝐨𝗋 𝗉𝗋𝐢𝗇𝗍𝐢𝗇𝗀 𝐨𝗋 𝖼𝗁𝗋𝐨𝗆𝐞'𝗌 **𝗌𝐚𝗏𝐞 𝐚𝗌 𝗉𝖽𝖿** 𝖽𝐞𝗌𝗍𝐢𝗇𝐚𝗍𝐢𝐨𝗇.
+- 𝖽𝐨𝗐𝗇𝗅𝐨𝐚𝖽𝗌 𝗌𝐞𝗅𝖿-𝖼𝐨𝗇𝗍𝐚𝐢𝗇𝐞𝖽 𝗁𝗍𝗆𝗅, 𝗆𝐚𝗋𝗄𝖽𝐨𝗐𝗇, 𝗇𝐨𝗋𝗆𝐚𝗅𝐢𝗓𝐞𝖽 𝗃𝗌𝐨𝗇, 𝐨𝗋 𝐚 𝗉𝗅𝐚𝐢𝗇𝗍𝐞𝗑𝗍 𝗃𝗌𝐨𝗇 𝐞𝗑𝗉𝐨𝗋𝗍 𝐨𝖿 𝗍𝗁𝐞 𝗅𝐨𝖼𝐚𝗅 𝗅𝐢𝖻𝗋𝐚𝗋𝗒.
+- 𝗉𝗋𝐞𝗌𝐞𝗋𝗏𝐞𝗌 𝗌𝐨𝐮𝗋𝖼𝐞 𝗆𝐚𝗋𝗄𝖽𝐨𝗐𝗇, 𝖼𝐨𝖽𝐞 𝐢𝗇𝖽𝐞𝗇𝗍𝐚𝗍𝐢𝐨𝗇, 𝗍𝐢𝗆𝐞𝗌𝗍𝐚𝗆𝗉𝗌, 𝐞𝗑𝗍𝗋𝐚𝖼𝗍𝐞𝖽 𝐚𝗍𝗍𝐚𝖼𝗁𝗆𝐞𝗇𝗍 𝗍𝐞𝗑𝗍, 𝐚𝗋𝗍𝐢𝖿𝐚𝖼𝗍 𝗌𝐨𝐮𝗋𝖼𝐞, 𝐚𝗇𝖽 𝖼𝗋𝐞𝐚𝗍𝐞𝖽-𝖿𝐢𝗅𝐞 𝖼𝐨𝗇𝗍𝐞𝗇𝗍 𝗐𝗁𝐞𝗇 𝖼𝗅𝐚𝐮𝖽𝐞 𝗋𝐞𝗍𝐮𝗋𝗇𝗌 𝗍𝗁𝐞𝗆.
+- 𝗋𝐞𝗉𝐨𝗋𝗍𝗌 𝗉𝐚𝗋𝗍𝐢𝐚𝗅 𝖼𝐚𝗉𝗍𝐮𝗋𝐞𝗌, 𝐮𝗇𝗄𝗇𝐨𝗐𝗇 𝖼𝐨𝗇𝗍𝐞𝗇𝗍 𝖻𝗅𝐨𝖼𝗄𝗌, 𝐢𝗇𝗍𝐞𝗋𝗋𝐮𝗉𝗍𝐞𝖽 𝗋𝐞𝗌𝗉𝐨𝗇𝗌𝐞𝗌, 𝗆𝐢𝗌𝗌𝐢𝗇𝗀 𝖻𝐢𝗇𝐚𝗋𝗒 𝐚𝗍𝗍𝐚𝖼𝗁𝗆𝐞𝗇𝗍𝗌, 𝐚𝗇𝖽 𝐨𝗍𝗁𝐞𝗋 𝐨𝗆𝐢𝗌𝗌𝐢𝐨𝗇𝗌 𝐢𝗇𝗌𝗍𝐞𝐚𝖽 𝐨𝖿 𝗌𝐢𝗅𝐞𝗇𝗍𝗅𝗒 𝖼𝗅𝐚𝐢𝗆𝐢𝗇𝗀 𝗌𝐮𝖼𝖼𝐞𝗌𝗌.
 
-## Why API-first capture matters
+𝐢𝗍 𝗁𝐚𝗌 𝗇𝐨 𝖻𝐚𝖼𝗄𝐞𝗇𝖽, 𝐚𝖼𝖼𝐨𝐮𝗇𝗍, 𝐚𝗇𝐚𝗅𝗒𝗍𝐢𝖼𝗌, 𝗍𝐞𝗅𝐞𝗆𝐞𝗍𝗋𝗒, 𝖼𝖽𝗇, 𝐨𝗋 𝗋𝐞𝗆𝐨𝗍𝐞𝗅𝗒 𝗁𝐨𝗌𝗍𝐞𝖽 𝖼𝐨𝖽𝐞.
 
-Claude now virtualizes long conversations: only a small window of nearby messages may exist in the page DOM at one time. Printing Claude's page or scraping the currently rendered HTML can therefore produce a plausible-looking but incomplete transcript.
+<a id="why-api-first-capture-matters"></a>
 
-Chatlog Printer asks Claude's own same-origin conversation endpoint for the structured thread after an explicit toolbar click, uses the browser's existing Claude session, and then validates the active parent chain. A DOM capture exists only as a clearly labeled partial fallback. Partial or warning captures require confirmation before they are saved.
+## 𝗐𝗁𝗒 𝐚𝗉𝐢-𝖿𝐢𝗋𝗌𝗍 𝖼𝐚𝗉𝗍𝐮𝗋𝐞 𝗆𝐚𝗍𝗍𝐞𝗋𝗌
 
-## Install the prototype
+𝖼𝗅𝐚𝐮𝖽𝐞 𝗇𝐨𝗐 𝗏𝐢𝗋𝗍𝐮𝐚𝗅𝐢𝗓𝐞𝗌 𝗅𝐨𝗇𝗀 𝖼𝐨𝗇𝗏𝐞𝗋𝗌𝐚𝗍𝐢𝐨𝗇𝗌: 𝐨𝗇𝗅𝗒 𝐚 𝗌𝗆𝐚𝗅𝗅 𝗐𝐢𝗇𝖽𝐨𝗐 𝐨𝖿 𝗇𝐞𝐚𝗋𝖻𝗒 𝗆𝐞𝗌𝗌𝐚𝗀𝐞𝗌 𝗆𝐚𝗒 𝐞𝗑𝐢𝗌𝗍 𝐢𝗇 𝗍𝗁𝐞 𝗉𝐚𝗀𝐞 𝖽𝐨𝗆 𝐚𝗍 𝐨𝗇𝐞 𝗍𝐢𝗆𝐞. 𝗉𝗋𝐢𝗇𝗍𝐢𝗇𝗀 𝖼𝗅𝐚𝐮𝖽𝐞'𝗌 𝗉𝐚𝗀𝐞 𝐨𝗋 𝗌𝖼𝗋𝐚𝗉𝐢𝗇𝗀 𝗍𝗁𝐞 𝖼𝐮𝗋𝗋𝐞𝗇𝗍𝗅𝗒 𝗋𝐞𝗇𝖽𝐞𝗋𝐞𝖽 𝗁𝗍𝗆𝗅 𝖼𝐚𝗇 𝗍𝗁𝐞𝗋𝐞𝖿𝐨𝗋𝐞 𝗉𝗋𝐨𝖽𝐮𝖼𝐞 𝐚 𝗉𝗅𝐚𝐮𝗌𝐢𝖻𝗅𝐞-𝗅𝐨𝐨𝗄𝐢𝗇𝗀 𝖻𝐮𝗍 𝐢𝗇𝖼𝐨𝗆𝗉𝗅𝐞𝗍𝐞 𝗍𝗋𝐚𝗇𝗌𝖼𝗋𝐢𝗉𝗍.
 
-1. Open `chrome://extensions` in Google Chrome.
-2. Turn on **Developer mode**.
-3. Choose **Load unpacked**.
-4. Select the extracted `chatlog-printer-0.1.1` release folder containing `manifest.json` (or this source directory during development).
-5. Pin Chatlog Printer from Chrome's extensions menu if you want the button visible.
+𝖼𝗁𝐚𝗍𝗅𝐨𝗀 𝗉𝗋𝐢𝗇𝗍𝐞𝗋 𝐚𝗌𝗄𝗌 𝖼𝗅𝐚𝐮𝖽𝐞'𝗌 𝐨𝗐𝗇 𝗌𝐚𝗆𝐞-𝐨𝗋𝐢𝗀𝐢𝗇 𝖼𝐨𝗇𝗏𝐞𝗋𝗌𝐚𝗍𝐢𝐨𝗇 𝐞𝗇𝖽𝗉𝐨𝐢𝗇𝗍 𝖿𝐨𝗋 𝗍𝗁𝐞 𝗌𝗍𝗋𝐮𝖼𝗍𝐮𝗋𝐞𝖽 𝗍𝗁𝗋𝐞𝐚𝖽 𝐚𝖿𝗍𝐞𝗋 𝐚𝗇 𝐞𝗑𝗉𝗅𝐢𝖼𝐢𝗍 𝗍𝐨𝐨𝗅𝖻𝐚𝗋 𝖼𝗅𝐢𝖼𝗄, 𝐮𝗌𝐞𝗌 𝗍𝗁𝐞 𝖻𝗋𝐨𝗐𝗌𝐞𝗋'𝗌 𝐞𝗑𝐢𝗌𝗍𝐢𝗇𝗀 𝖼𝗅𝐚𝐮𝖽𝐞 𝗌𝐞𝗌𝗌𝐢𝐨𝗇, 𝐚𝗇𝖽 𝗍𝗁𝐞𝗇 𝗏𝐚𝗅𝐢𝖽𝐚𝗍𝐞𝗌 𝗍𝗁𝐞 𝐚𝖼𝗍𝐢𝗏𝐞 𝗉𝐚𝗋𝐞𝗇𝗍 𝖼𝗁𝐚𝐢𝗇. 𝐚 𝖽𝐨𝗆 𝖼𝐚𝗉𝗍𝐮𝗋𝐞 𝐞𝗑𝐢𝗌𝗍𝗌 𝐨𝗇𝗅𝗒 𝐚𝗌 𝐚 𝖼𝗅𝐞𝐚𝗋𝗅𝗒 𝗅𝐚𝖻𝐞𝗅𝐞𝖽 𝗉𝐚𝗋𝗍𝐢𝐚𝗅 𝖿𝐚𝗅𝗅𝖻𝐚𝖼𝗄. 𝗉𝐚𝗋𝗍𝐢𝐚𝗅 𝐨𝗋 𝗐𝐚𝗋𝗇𝐢𝗇𝗀 𝖼𝐚𝗉𝗍𝐮𝗋𝐞𝗌 𝗋𝐞𝗊𝐮𝐢𝗋𝐞 𝖼𝐨𝗇𝖿𝐢𝗋𝗆𝐚𝗍𝐢𝐨𝗇 𝖻𝐞𝖿𝐨𝗋𝐞 𝗍𝗁𝐞𝗒 𝐚𝗋𝐞 𝗌𝐚𝗏𝐞𝖽.
 
-No build step or package installation is required.
+<a id="install-the-prototype"></a>
 
-## Use it
+## 𝐢𝗇𝗌𝗍𝐚𝗅𝗅 𝗍𝗁𝐞 𝗉𝗋𝐨𝗍𝐨𝗍𝗒𝗉𝐞
 
-1. Open a specific conversation at `https://claude.ai/chat/...` and wait for Claude to finish responding.
-2. Click the Chatlog Printer toolbar button.
-3. Choose **Save locally** or **Save & print**.
-4. In the print view, choose **Print / Save PDF**. In Chrome's dialog, select **Save as PDF** or a physical printer.
+1. 𝐨𝗉𝐞𝗇 `chrome://extensions` 𝐢𝗇 𝗀𝐨𝐨𝗀𝗅𝐞 𝖼𝗁𝗋𝐨𝗆𝐞.
+2. 𝗍𝐮𝗋𝗇 𝐨𝗇 **𝖽𝐞𝗏𝐞𝗅𝐨𝗉𝐞𝗋 𝗆𝐨𝖽𝐞**.
+3. 𝖼𝗁𝐨𝐨𝗌𝐞 **𝗅𝐨𝐚𝖽 𝐮𝗇𝗉𝐚𝖼𝗄𝐞𝖽**.
+4. 𝗌𝐞𝗅𝐞𝖼𝗍 𝗍𝗁𝐞 𝐞𝗑𝗍𝗋𝐚𝖼𝗍𝐞𝖽 `chatlog-printer-0.1.1` 𝗋𝐞𝗅𝐞𝐚𝗌𝐞 𝖿𝐨𝗅𝖽𝐞𝗋 𝖼𝐨𝗇𝗍𝐚𝐢𝗇𝐢𝗇𝗀 `manifest.json` (𝐨𝗋 𝗍𝗁𝐢𝗌 𝗌𝐨𝐮𝗋𝖼𝐞 𝖽𝐢𝗋𝐞𝖼𝗍𝐨𝗋𝗒 𝖽𝐮𝗋𝐢𝗇𝗀 𝖽𝐞𝗏𝐞𝗅𝐨𝗉𝗆𝐞𝗇𝗍).
+5. 𝗉𝐢𝗇 𝖼𝗁𝐚𝗍𝗅𝐨𝗀 𝗉𝗋𝐢𝗇𝗍𝐞𝗋 𝖿𝗋𝐨𝗆 𝖼𝗁𝗋𝐨𝗆𝐞'𝗌 𝐞𝗑𝗍𝐞𝗇𝗌𝐢𝐨𝗇𝗌 𝗆𝐞𝗇𝐮 𝐢𝖿 𝗒𝐨𝐮 𝗐𝐚𝗇𝗍 𝗍𝗁𝐞 𝖻𝐮𝗍𝗍𝐨𝗇 𝗏𝐢𝗌𝐢𝖻𝗅𝐞.
 
-A longer capture on the same verified message path updates its local record. Downgrades and divergent branches are preserved as snapshots; if a stronger divergent capture is promoted, the previous base is snapshotted first. Use **Open local library** for search, downloads, deletion, and whole-library JSON export.
+𝗇𝐨 𝖻𝐮𝐢𝗅𝖽 𝗌𝗍𝐞𝗉 𝐨𝗋 𝗉𝐚𝖼𝗄𝐚𝗀𝐞 𝐢𝗇𝗌𝗍𝐚𝗅𝗅𝐚𝗍𝐢𝐨𝗇 𝐢𝗌 𝗋𝐞𝗊𝐮𝐢𝗋𝐞𝖽.
 
-## Capture receipt
+<a id="use-it"></a>
 
-Every capture reports two separate facts:
+## 𝐮𝗌𝐞 𝐢𝗍
 
-- **Message chain — Verified / Unverified:** whether the requested conversation ID matched, the current leaf reached the root without a gap or cycle, Claude was not streaming, no compaction/truncation was detected, and the API response agreed with the rendered message window.
-- **Content fidelity — Full text / Omissions:** whether readable transcript material was reproduced without known omissions such as image bytes, file bytes, tool internals, private reasoning, unresolved artifact patches, or an unknown block type.
+1. 𝐨𝗉𝐞𝗇 𝐚 𝗌𝗉𝐞𝖼𝐢𝖿𝐢𝖼 𝖼𝐨𝗇𝗏𝐞𝗋𝗌𝐚𝗍𝐢𝐨𝗇 𝐚𝗍 `https://claude.ai/chat/...` 𝐚𝗇𝖽 𝗐𝐚𝐢𝗍 𝖿𝐨𝗋 𝖼𝗅𝐚𝐮𝖽𝐞 𝗍𝐨 𝖿𝐢𝗇𝐢𝗌𝗁 𝗋𝐞𝗌𝗉𝐨𝗇𝖽𝐢𝗇𝗀.
+2. 𝖼𝗅𝐢𝖼𝗄 𝗍𝗁𝐞 𝖼𝗁𝐚𝗍𝗅𝐨𝗀 𝗉𝗋𝐢𝗇𝗍𝐞𝗋 𝗍𝐨𝐨𝗅𝖻𝐚𝗋 𝖻𝐮𝗍𝗍𝐨𝗇.
+3. 𝖼𝗁𝐨𝐨𝗌𝐞 **𝗌𝐚𝗏𝐞 𝗅𝐨𝖼𝐚𝗅𝗅𝗒** 𝐨𝗋 **𝗌𝐚𝗏𝐞 & 𝗉𝗋𝐢𝗇𝗍**.
+4. 𝐢𝗇 𝗍𝗁𝐞 𝗉𝗋𝐢𝗇𝗍 𝗏𝐢𝐞𝗐, 𝖼𝗁𝐨𝐨𝗌𝐞 **𝗉𝗋𝐢𝗇𝗍 / 𝗌𝐚𝗏𝐞 𝗉𝖽𝖿**. 𝐢𝗇 𝖼𝗁𝗋𝐨𝗆𝐞'𝗌 𝖽𝐢𝐚𝗅𝐨𝗀, 𝗌𝐞𝗅𝐞𝖼𝗍 **𝗌𝐚𝗏𝐞 𝐚𝗌 𝗉𝖽𝖿** 𝐨𝗋 𝐚 𝗉𝗁𝗒𝗌𝐢𝖼𝐚𝗅 𝗉𝗋𝐢𝗇𝗍𝐞𝗋.
 
-The overall label is **Complete** only when the chain is verified and readable content has no known omissions, **Warnings** when the chain is verified with disclosed fidelity issues, and **Partial** when the chain itself cannot be proven. Warning and partial captures require confirmation before saving.
+𝐚 𝗅𝐨𝗇𝗀𝐞𝗋 𝖼𝐚𝗉𝗍𝐮𝗋𝐞 𝐨𝗇 𝗍𝗁𝐞 𝗌𝐚𝗆𝐞 𝗏𝐞𝗋𝐢𝖿𝐢𝐞𝖽 𝗆𝐞𝗌𝗌𝐚𝗀𝐞 𝗉𝐚𝗍𝗁 𝐮𝗉𝖽𝐚𝗍𝐞𝗌 𝐢𝗍𝗌 𝗅𝐨𝖼𝐚𝗅 𝗋𝐞𝖼𝐨𝗋𝖽. 𝖽𝐨𝗐𝗇𝗀𝗋𝐚𝖽𝐞𝗌 𝐚𝗇𝖽 𝖽𝐢𝗏𝐞𝗋𝗀𝐞𝗇𝗍 𝖻𝗋𝐚𝗇𝖼𝗁𝐞𝗌 𝐚𝗋𝐞 𝗉𝗋𝐞𝗌𝐞𝗋𝗏𝐞𝖽 𝐚𝗌 𝗌𝗇𝐚𝗉𝗌𝗁𝐨𝗍𝗌; 𝐢𝖿 𝐚 𝗌𝗍𝗋𝐨𝗇𝗀𝐞𝗋 𝖽𝐢𝗏𝐞𝗋𝗀𝐞𝗇𝗍 𝖼𝐚𝗉𝗍𝐮𝗋𝐞 𝐢𝗌 𝗉𝗋𝐨𝗆𝐨𝗍𝐞𝖽, 𝗍𝗁𝐞 𝗉𝗋𝐞𝗏𝐢𝐨𝐮𝗌 𝖻𝐚𝗌𝐞 𝐢𝗌 𝗌𝗇𝐚𝗉𝗌𝗁𝐨𝗍𝗍𝐞𝖽 𝖿𝐢𝗋𝗌𝗍. 𝐮𝗌𝐞 **𝐨𝗉𝐞𝗇 𝗅𝐨𝖼𝐚𝗅 𝗅𝐢𝖻𝗋𝐚𝗋𝗒** 𝖿𝐨𝗋 𝗌𝐞𝐚𝗋𝖼𝗁, 𝖽𝐨𝗐𝗇𝗅𝐨𝐚𝖽𝗌, 𝖽𝐞𝗅𝐞𝗍𝐢𝐨𝗇, 𝐚𝗇𝖽 𝗐𝗁𝐨𝗅𝐞-𝗅𝐢𝖻𝗋𝐚𝗋𝗒 𝗃𝗌𝐨𝗇 𝐞𝗑𝗉𝐨𝗋𝗍.
 
-Alternate branches are intentionally excluded because they are not the branch currently selected in Claude. Their count is recorded in capture notes.
+<a id="capture-receipt"></a>
 
-## Local data and privacy
+## 𝖼𝐚𝗉𝗍𝐮𝗋𝐞 𝗋𝐞𝖼𝐞𝐢𝗉𝗍
 
-Conversation records live in this extension's IndexedDB database in the current Chrome profile. Nothing is sent to the developer or another service. The only network calls made during capture go to `https://claude.ai` endpoints that the open page itself uses, authenticated by the session already in that tab.
+𝐞𝗏𝐞𝗋𝗒 𝖼𝐚𝗉𝗍𝐮𝗋𝐞 𝗋𝐞𝗉𝐨𝗋𝗍𝗌 𝗍𝗐𝐨 𝗌𝐞𝗉𝐚𝗋𝐚𝗍𝐞 𝖿𝐚𝖼𝗍𝗌:
 
-Important prototype caveats:
+- **𝗆𝐞𝗌𝗌𝐚𝗀𝐞 𝖼𝗁𝐚𝐢𝗇 — 𝗏𝐞𝗋𝐢𝖿𝐢𝐞𝖽 / 𝐮𝗇𝗏𝐞𝗋𝐢𝖿𝐢𝐞𝖽:** 𝗐𝗁𝐞𝗍𝗁𝐞𝗋 𝗍𝗁𝐞 𝗋𝐞𝗊𝐮𝐞𝗌𝗍𝐞𝖽 𝖼𝐨𝗇𝗏𝐞𝗋𝗌𝐚𝗍𝐢𝐨𝗇 𝐢𝖽 𝗆𝐚𝗍𝖼𝗁𝐞𝖽, 𝗍𝗁𝐞 𝖼𝐮𝗋𝗋𝐞𝗇𝗍 𝗅𝐞𝐚𝖿 𝗋𝐞𝐚𝖼𝗁𝐞𝖽 𝗍𝗁𝐞 𝗋𝐨𝐨𝗍 𝗐𝐢𝗍𝗁𝐨𝐮𝗍 𝐚 𝗀𝐚𝗉 𝐨𝗋 𝖼𝗒𝖼𝗅𝐞, 𝖼𝗅𝐚𝐮𝖽𝐞 𝗐𝐚𝗌 𝗇𝐨𝗍 𝗌𝗍𝗋𝐞𝐚𝗆𝐢𝗇𝗀, 𝗇𝐨 𝖼𝐨𝗆𝗉𝐚𝖼𝗍𝐢𝐨𝗇/𝗍𝗋𝐮𝗇𝖼𝐚𝗍𝐢𝐨𝗇 𝗐𝐚𝗌 𝖽𝐞𝗍𝐞𝖼𝗍𝐞𝖽, 𝐚𝗇𝖽 𝗍𝗁𝐞 𝐚𝗉𝐢 𝗋𝐞𝗌𝗉𝐨𝗇𝗌𝐞 𝐚𝗀𝗋𝐞𝐞𝖽 𝗐𝐢𝗍𝗁 𝗍𝗁𝐞 𝗋𝐞𝗇𝖽𝐞𝗋𝐞𝖽 𝗆𝐞𝗌𝗌𝐚𝗀𝐞 𝗐𝐢𝗇𝖽𝐨𝗐.
+- **𝖼𝐨𝗇𝗍𝐞𝗇𝗍 𝖿𝐢𝖽𝐞𝗅𝐢𝗍𝗒 — 𝖿𝐮𝗅𝗅 𝗍𝐞𝗑𝗍 / 𝐨𝗆𝐢𝗌𝗌𝐢𝐨𝗇𝗌:** 𝗐𝗁𝐞𝗍𝗁𝐞𝗋 𝗋𝐞𝐚𝖽𝐚𝖻𝗅𝐞 𝗍𝗋𝐚𝗇𝗌𝖼𝗋𝐢𝗉𝗍 𝗆𝐚𝗍𝐞𝗋𝐢𝐚𝗅 𝗐𝐚𝗌 𝗋𝐞𝗉𝗋𝐨𝖽𝐮𝖼𝐞𝖽 𝗐𝐢𝗍𝗁𝐨𝐮𝗍 𝗄𝗇𝐨𝗐𝗇 𝐨𝗆𝐢𝗌𝗌𝐢𝐨𝗇𝗌 𝗌𝐮𝖼𝗁 𝐚𝗌 𝐢𝗆𝐚𝗀𝐞 𝖻𝗒𝗍𝐞𝗌, 𝖿𝐢𝗅𝐞 𝖻𝗒𝗍𝐞𝗌, 𝗍𝐨𝐨𝗅 𝐢𝗇𝗍𝐞𝗋𝗇𝐚𝗅𝗌, 𝗉𝗋𝐢𝗏𝐚𝗍𝐞 𝗋𝐞𝐚𝗌𝐨𝗇𝐢𝗇𝗀, 𝐮𝗇𝗋𝐞𝗌𝐨𝗅𝗏𝐞𝖽 𝐚𝗋𝗍𝐢𝖿𝐚𝖼𝗍 𝗉𝐚𝗍𝖼𝗁𝐞𝗌, 𝐨𝗋 𝐚𝗇 𝐮𝗇𝗄𝗇𝐨𝗐𝗇 𝖻𝗅𝐨𝖼𝗄 𝗍𝗒𝗉𝐞.
 
-- The local library is not encrypted separately from the Chrome profile. Anyone with access to that browser profile may be able to read it.
-- Removing the extension removes its IndexedDB library. Download HTML/Markdown/JSON files or the library JSON export for durable copies. Library restore/import is not implemented yet.
-- Exported files are user-owned local files and survive extension removal.
-- Incognito capture is disabled so a private-window conversation cannot be persisted into the regular-profile library.
+𝗍𝗁𝐞 𝐨𝗏𝐞𝗋𝐚𝗅𝗅 𝗅𝐚𝖻𝐞𝗅 𝐢𝗌 **𝖼𝐨𝗆𝗉𝗅𝐞𝗍𝐞** 𝐨𝗇𝗅𝗒 𝗐𝗁𝐞𝗇 𝗍𝗁𝐞 𝖼𝗁𝐚𝐢𝗇 𝐢𝗌 𝗏𝐞𝗋𝐢𝖿𝐢𝐞𝖽 𝐚𝗇𝖽 𝗋𝐞𝐚𝖽𝐚𝖻𝗅𝐞 𝖼𝐨𝗇𝗍𝐞𝗇𝗍 𝗁𝐚𝗌 𝗇𝐨 𝗄𝗇𝐨𝗐𝗇 𝐨𝗆𝐢𝗌𝗌𝐢𝐨𝗇𝗌, **𝗐𝐚𝗋𝗇𝐢𝗇𝗀𝗌** 𝗐𝗁𝐞𝗇 𝗍𝗁𝐞 𝖼𝗁𝐚𝐢𝗇 𝐢𝗌 𝗏𝐞𝗋𝐢𝖿𝐢𝐞𝖽 𝗐𝐢𝗍𝗁 𝖽𝐢𝗌𝖼𝗅𝐨𝗌𝐞𝖽 𝖿𝐢𝖽𝐞𝗅𝐢𝗍𝗒 𝐢𝗌𝗌𝐮𝐞𝗌, 𝐚𝗇𝖽 **𝗉𝐚𝗋𝗍𝐢𝐚𝗅** 𝗐𝗁𝐞𝗇 𝗍𝗁𝐞 𝖼𝗁𝐚𝐢𝗇 𝐢𝗍𝗌𝐞𝗅𝖿 𝖼𝐚𝗇𝗇𝐨𝗍 𝖻𝐞 𝗉𝗋𝐨𝗏𝐞𝗇. 𝗐𝐚𝗋𝗇𝐢𝗇𝗀 𝐚𝗇𝖽 𝗉𝐚𝗋𝗍𝐢𝐚𝗅 𝖼𝐚𝗉𝗍𝐮𝗋𝐞𝗌 𝗋𝐞𝗊𝐮𝐢𝗋𝐞 𝖼𝐨𝗇𝖿𝐢𝗋𝗆𝐚𝗍𝐢𝐨𝗇 𝖻𝐞𝖿𝐨𝗋𝐞 𝗌𝐚𝗏𝐢𝗇𝗀.
 
-See [PRIVACY.md](PRIVACY.md) for the complete data-flow statement.
+𝐚𝗅𝗍𝐞𝗋𝗇𝐚𝗍𝐞 𝖻𝗋𝐚𝗇𝖼𝗁𝐞𝗌 𝐚𝗋𝐞 𝐢𝗇𝗍𝐞𝗇𝗍𝐢𝐨𝗇𝐚𝗅𝗅𝗒 𝐞𝗑𝖼𝗅𝐮𝖽𝐞𝖽 𝖻𝐞𝖼𝐚𝐮𝗌𝐞 𝗍𝗁𝐞𝗒 𝐚𝗋𝐞 𝗇𝐨𝗍 𝗍𝗁𝐞 𝖻𝗋𝐚𝗇𝖼𝗁 𝖼𝐮𝗋𝗋𝐞𝗇𝗍𝗅𝗒 𝗌𝐞𝗅𝐞𝖼𝗍𝐞𝖽 𝐢𝗇 𝖼𝗅𝐚𝐮𝖽𝐞. 𝗍𝗁𝐞𝐢𝗋 𝖼𝐨𝐮𝗇𝗍 𝐢𝗌 𝗋𝐞𝖼𝐨𝗋𝖽𝐞𝖽 𝐢𝗇 𝖼𝐚𝗉𝗍𝐮𝗋𝐞 𝗇𝐨𝗍𝐞𝗌.
 
-## Permissions
+<a id="local-data-and-privacy"></a>
 
-- `activeTab`: temporary access to the tab only after the user clicks the extension.
-- `scripting`: inject the packaged Claude capture adapter into that tab.
-- `unlimitedStorage`: protect a user-enabled local transcript library from ordinary browser quota limits and eviction.
+## 𝗅𝐨𝖼𝐚𝗅 𝖽𝐚𝗍𝐚 𝐚𝗇𝖽 𝗉𝗋𝐢𝗏𝐚𝖼𝗒
 
-There are no persistent host permissions, all-sites access, downloads permission, tabs permission, debugger access, web request access, or clipboard access.
+𝖼𝐨𝗇𝗏𝐞𝗋𝗌𝐚𝗍𝐢𝐨𝗇 𝗋𝐞𝖼𝐨𝗋𝖽𝗌 𝗅𝐢𝗏𝐞 𝐢𝗇 𝗍𝗁𝐢𝗌 𝐞𝗑𝗍𝐞𝗇𝗌𝐢𝐨𝗇'𝗌 𝐢𝗇𝖽𝐞𝗑𝐞𝖽𝖽𝖻 𝖽𝐚𝗍𝐚𝖻𝐚𝗌𝐞 𝐢𝗇 𝗍𝗁𝐞 𝖼𝐮𝗋𝗋𝐞𝗇𝗍 𝖼𝗁𝗋𝐨𝗆𝐞 𝗉𝗋𝐨𝖿𝐢𝗅𝐞. 𝗇𝐨𝗍𝗁𝐢𝗇𝗀 𝐢𝗌 𝗌𝐞𝗇𝗍 𝗍𝐨 𝗍𝗁𝐞 𝖽𝐞𝗏𝐞𝗅𝐨𝗉𝐞𝗋 𝐨𝗋 𝐚𝗇𝐨𝗍𝗁𝐞𝗋 𝗌𝐞𝗋𝗏𝐢𝖼𝐞. 𝗍𝗁𝐞 𝐨𝗇𝗅𝗒 𝗇𝐞𝗍𝗐𝐨𝗋𝗄 𝖼𝐚𝗅𝗅𝗌 𝗆𝐚𝖽𝐞 𝖽𝐮𝗋𝐢𝗇𝗀 𝖼𝐚𝗉𝗍𝐮𝗋𝐞 𝗀𝐨 𝗍𝐨 `https://claude.ai` 𝐞𝗇𝖽𝗉𝐨𝐢𝗇𝗍𝗌 𝗍𝗁𝐚𝗍 𝗍𝗁𝐞 𝐨𝗉𝐞𝗇 𝗉𝐚𝗀𝐞 𝐢𝗍𝗌𝐞𝗅𝖿 𝐮𝗌𝐞𝗌, 𝐚𝐮𝗍𝗁𝐞𝗇𝗍𝐢𝖼𝐚𝗍𝐞𝖽 𝖻𝗒 𝗍𝗁𝐞 𝗌𝐞𝗌𝗌𝐢𝐨𝗇 𝐚𝗅𝗋𝐞𝐚𝖽𝗒 𝐢𝗇 𝗍𝗁𝐚𝗍 𝗍𝐚𝖻.
 
-## Architecture
+𝐢𝗆𝗉𝐨𝗋𝗍𝐚𝗇𝗍 𝗉𝗋𝐨𝗍𝐨𝗍𝗒𝗉𝐞 𝖼𝐚𝗏𝐞𝐚𝗍𝗌:
+
+- 𝗍𝗁𝐞 𝗅𝐨𝖼𝐚𝗅 𝗅𝐢𝖻𝗋𝐚𝗋𝗒 𝐢𝗌 𝗇𝐨𝗍 𝐞𝗇𝖼𝗋𝗒𝗉𝗍𝐞𝖽 𝗌𝐞𝗉𝐚𝗋𝐚𝗍𝐞𝗅𝗒 𝖿𝗋𝐨𝗆 𝗍𝗁𝐞 𝖼𝗁𝗋𝐨𝗆𝐞 𝗉𝗋𝐨𝖿𝐢𝗅𝐞. 𝐚𝗇𝗒𝐨𝗇𝐞 𝗐𝐢𝗍𝗁 𝐚𝖼𝖼𝐞𝗌𝗌 𝗍𝐨 𝗍𝗁𝐚𝗍 𝖻𝗋𝐨𝗐𝗌𝐞𝗋 𝗉𝗋𝐨𝖿𝐢𝗅𝐞 𝗆𝐚𝗒 𝖻𝐞 𝐚𝖻𝗅𝐞 𝗍𝐨 𝗋𝐞𝐚𝖽 𝐢𝗍.
+- 𝗋𝐞𝗆𝐨𝗏𝐢𝗇𝗀 𝗍𝗁𝐞 𝐞𝗑𝗍𝐞𝗇𝗌𝐢𝐨𝗇 𝗋𝐞𝗆𝐨𝗏𝐞𝗌 𝐢𝗍𝗌 𝐢𝗇𝖽𝐞𝗑𝐞𝖽𝖽𝖻 𝗅𝐢𝖻𝗋𝐚𝗋𝗒. 𝖽𝐨𝗐𝗇𝗅𝐨𝐚𝖽 𝗁𝗍𝗆𝗅/𝗆𝐚𝗋𝗄𝖽𝐨𝗐𝗇/𝗃𝗌𝐨𝗇 𝖿𝐢𝗅𝐞𝗌 𝐨𝗋 𝗍𝗁𝐞 𝗅𝐢𝖻𝗋𝐚𝗋𝗒 𝗃𝗌𝐨𝗇 𝐞𝗑𝗉𝐨𝗋𝗍 𝖿𝐨𝗋 𝖽𝐮𝗋𝐚𝖻𝗅𝐞 𝖼𝐨𝗉𝐢𝐞𝗌. 𝗅𝐢𝖻𝗋𝐚𝗋𝗒 𝗋𝐞𝗌𝗍𝐨𝗋𝐞/𝐢𝗆𝗉𝐨𝗋𝗍 𝐢𝗌 𝗇𝐨𝗍 𝐢𝗆𝗉𝗅𝐞𝗆𝐞𝗇𝗍𝐞𝖽 𝗒𝐞𝗍.
+- 𝐞𝗑𝗉𝐨𝗋𝗍𝐞𝖽 𝖿𝐢𝗅𝐞𝗌 𝐚𝗋𝐞 𝐮𝗌𝐞𝗋-𝐨𝗐𝗇𝐞𝖽 𝗅𝐨𝖼𝐚𝗅 𝖿𝐢𝗅𝐞𝗌 𝐚𝗇𝖽 𝗌𝐮𝗋𝗏𝐢𝗏𝐞 𝐞𝗑𝗍𝐞𝗇𝗌𝐢𝐨𝗇 𝗋𝐞𝗆𝐨𝗏𝐚𝗅.
+- 𝐢𝗇𝖼𝐨𝗀𝗇𝐢𝗍𝐨 𝖼𝐚𝗉𝗍𝐮𝗋𝐞 𝐢𝗌 𝖽𝐢𝗌𝐚𝖻𝗅𝐞𝖽 𝗌𝐨 𝐚 𝗉𝗋𝐢𝗏𝐚𝗍𝐞-𝗐𝐢𝗇𝖽𝐨𝗐 𝖼𝐨𝗇𝗏𝐞𝗋𝗌𝐚𝗍𝐢𝐨𝗇 𝖼𝐚𝗇𝗇𝐨𝗍 𝖻𝐞 𝗉𝐞𝗋𝗌𝐢𝗌𝗍𝐞𝖽 𝐢𝗇𝗍𝐨 𝗍𝗁𝐞 𝗋𝐞𝗀𝐮𝗅𝐚𝗋-𝗉𝗋𝐨𝖿𝐢𝗅𝐞 𝗅𝐢𝖻𝗋𝐚𝗋𝗒.
+
+𝗌𝐞𝐞 [PRIVACY.md](PRIVACY.md) 𝖿𝐨𝗋 𝗍𝗁𝐞 𝖼𝐨𝗆𝗉𝗅𝐞𝗍𝐞 𝖽𝐚𝗍𝐚-𝖿𝗅𝐨𝗐 𝗌𝗍𝐚𝗍𝐞𝗆𝐞𝗇𝗍.
+
+<a id="permissions"></a>
+
+## 𝗉𝐞𝗋𝗆𝐢𝗌𝗌𝐢𝐨𝗇𝗌
+
+- `activeTab`: 𝗍𝐞𝗆𝗉𝐨𝗋𝐚𝗋𝗒 𝐚𝖼𝖼𝐞𝗌𝗌 𝗍𝐨 𝗍𝗁𝐞 𝗍𝐚𝖻 𝐨𝗇𝗅𝗒 𝐚𝖿𝗍𝐞𝗋 𝗍𝗁𝐞 𝐮𝗌𝐞𝗋 𝖼𝗅𝐢𝖼𝗄𝗌 𝗍𝗁𝐞 𝐞𝗑𝗍𝐞𝗇𝗌𝐢𝐨𝗇.
+- `scripting`: 𝐢𝗇𝗃𝐞𝖼𝗍 𝗍𝗁𝐞 𝗉𝐚𝖼𝗄𝐚𝗀𝐞𝖽 𝖼𝗅𝐚𝐮𝖽𝐞 𝖼𝐚𝗉𝗍𝐮𝗋𝐞 𝐚𝖽𝐚𝗉𝗍𝐞𝗋 𝐢𝗇𝗍𝐨 𝗍𝗁𝐚𝗍 𝗍𝐚𝖻.
+- `unlimitedStorage`: 𝗉𝗋𝐨𝗍𝐞𝖼𝗍 𝐚 𝐮𝗌𝐞𝗋-𝐞𝗇𝐚𝖻𝗅𝐞𝖽 𝗅𝐨𝖼𝐚𝗅 𝗍𝗋𝐚𝗇𝗌𝖼𝗋𝐢𝗉𝗍 𝗅𝐢𝖻𝗋𝐚𝗋𝗒 𝖿𝗋𝐨𝗆 𝐨𝗋𝖽𝐢𝗇𝐚𝗋𝗒 𝖻𝗋𝐨𝗐𝗌𝐞𝗋 𝗊𝐮𝐨𝗍𝐚 𝗅𝐢𝗆𝐢𝗍𝗌 𝐚𝗇𝖽 𝐞𝗏𝐢𝖼𝗍𝐢𝐨𝗇.
+
+𝗍𝗁𝐞𝗋𝐞 𝐚𝗋𝐞 𝗇𝐨 𝗉𝐞𝗋𝗌𝐢𝗌𝗍𝐞𝗇𝗍 𝗁𝐨𝗌𝗍 𝗉𝐞𝗋𝗆𝐢𝗌𝗌𝐢𝐨𝗇𝗌, 𝐚𝗅𝗅-𝗌𝐢𝗍𝐞𝗌 𝐚𝖼𝖼𝐞𝗌𝗌, 𝖽𝐨𝗐𝗇𝗅𝐨𝐚𝖽𝗌 𝗉𝐞𝗋𝗆𝐢𝗌𝗌𝐢𝐨𝗇, 𝗍𝐚𝖻𝗌 𝗉𝐞𝗋𝗆𝐢𝗌𝗌𝐢𝐨𝗇, 𝖽𝐞𝖻𝐮𝗀𝗀𝐞𝗋 𝐚𝖼𝖼𝐞𝗌𝗌, 𝗐𝐞𝖻 𝗋𝐞𝗊𝐮𝐞𝗌𝗍 𝐚𝖼𝖼𝐞𝗌𝗌, 𝐨𝗋 𝖼𝗅𝐢𝗉𝖻𝐨𝐚𝗋𝖽 𝐚𝖼𝖼𝐞𝗌𝗌.
+
+<a id="architecture"></a>
+
+## 𝐚𝗋𝖼𝗁𝐢𝗍𝐞𝖼𝗍𝐮𝗋𝐞
 
 ```text
 explicit toolbar click
@@ -101,93 +119,103 @@ extension-origin IndexedDB
 print view · HTML · Markdown · JSON · library export
 ```
 
-Key files:
+𝗄𝐞𝗒 𝖿𝐢𝗅𝐞𝗌:
 
-- `capture-core.js` — pure active-branch ordering and transcript normalization.
-- `page-capture.js` — the on-click Claude adapter and marked-partial DOM fallback.
-- `background.js` — capture orchestration outside the ephemeral popup; warning/partial saves wait for its live receipt.
-- `store.js` — extension-origin IndexedDB library.
-- `render.js` — safe Markdown, HTML, JSON, and print document rendering.
-- `popup.*`, `archive.*`, `transcript.*` — the three extension surfaces.
-- `tests/` — browser-run regression and hostile-input tests.
+- `capture-core.js` — 𝗉𝐮𝗋𝐞 𝐚𝖼𝗍𝐢𝗏𝐞-𝖻𝗋𝐚𝗇𝖼𝗁 𝐨𝗋𝖽𝐞𝗋𝐢𝗇𝗀 𝐚𝗇𝖽 𝗍𝗋𝐚𝗇𝗌𝖼𝗋𝐢𝗉𝗍 𝗇𝐨𝗋𝗆𝐚𝗅𝐢𝗓𝐚𝗍𝐢𝐨𝗇.
+- `page-capture.js` — 𝗍𝗁𝐞 𝐨𝗇-𝖼𝗅𝐢𝖼𝗄 𝖼𝗅𝐚𝐮𝖽𝐞 𝐚𝖽𝐚𝗉𝗍𝐞𝗋 𝐚𝗇𝖽 𝗆𝐚𝗋𝗄𝐞𝖽-𝗉𝐚𝗋𝗍𝐢𝐚𝗅 𝖽𝐨𝗆 𝖿𝐚𝗅𝗅𝖻𝐚𝖼𝗄.
+- `background.js` — 𝖼𝐚𝗉𝗍𝐮𝗋𝐞 𝐨𝗋𝖼𝗁𝐞𝗌𝗍𝗋𝐚𝗍𝐢𝐨𝗇 𝐨𝐮𝗍𝗌𝐢𝖽𝐞 𝗍𝗁𝐞 𝐞𝗉𝗁𝐞𝗆𝐞𝗋𝐚𝗅 𝗉𝐨𝗉𝐮𝗉; 𝗐𝐚𝗋𝗇𝐢𝗇𝗀/𝗉𝐚𝗋𝗍𝐢𝐚𝗅 𝗌𝐚𝗏𝐞𝗌 𝗐𝐚𝐢𝗍 𝖿𝐨𝗋 𝐢𝗍𝗌 𝗅𝐢𝗏𝐞 𝗋𝐞𝖼𝐞𝐢𝗉𝗍.
+- `store.js` — 𝐞𝗑𝗍𝐞𝗇𝗌𝐢𝐨𝗇-𝐨𝗋𝐢𝗀𝐢𝗇 𝐢𝗇𝖽𝐞𝗑𝐞𝖽𝖽𝖻 𝗅𝐢𝖻𝗋𝐚𝗋𝗒.
+- `render.js` — 𝗌𝐚𝖿𝐞 𝗆𝐚𝗋𝗄𝖽𝐨𝗐𝗇, 𝗁𝗍𝗆𝗅, 𝗃𝗌𝐨𝗇, 𝐚𝗇𝖽 𝗉𝗋𝐢𝗇𝗍 𝖽𝐨𝖼𝐮𝗆𝐞𝗇𝗍 𝗋𝐞𝗇𝖽𝐞𝗋𝐢𝗇𝗀.
+- `popup.*`, `archive.*`, `transcript.*` — 𝗍𝗁𝐞 𝗍𝗁𝗋𝐞𝐞 𝐞𝗑𝗍𝐞𝗇𝗌𝐢𝐨𝗇 𝗌𝐮𝗋𝖿𝐚𝖼𝐞𝗌.
+- `tests/` — 𝖻𝗋𝐨𝗐𝗌𝐞𝗋-𝗋𝐮𝗇 𝗋𝐞𝗀𝗋𝐞𝗌𝗌𝐢𝐨𝗇 𝐚𝗇𝖽 𝗁𝐨𝗌𝗍𝐢𝗅𝐞-𝐢𝗇𝗉𝐮𝗍 𝗍𝐞𝗌𝗍𝗌.
 
-## Tests
+<a id="tests"></a>
 
-The runner uses Python's standard library to coordinate Chrome, so it does not need Node, npm, or downloaded packages:
+## 𝗍𝐞𝗌𝗍𝗌
+
+𝗍𝗁𝐞 𝗋𝐮𝗇𝗇𝐞𝗋 𝐮𝗌𝐞𝗌 𝗉𝗒𝗍𝗁𝐨𝗇'𝗌 𝗌𝗍𝐚𝗇𝖽𝐚𝗋𝖽 𝗅𝐢𝖻𝗋𝐚𝗋𝗒 𝗍𝐨 𝖼𝐨𝐨𝗋𝖽𝐢𝗇𝐚𝗍𝐞 𝖼𝗁𝗋𝐨𝗆𝐞, 𝗌𝐨 𝐢𝗍 𝖽𝐨𝐞𝗌 𝗇𝐨𝗍 𝗇𝐞𝐞𝖽 𝗇𝐨𝖽𝐞, 𝗇𝗉𝗆, 𝐨𝗋 𝖽𝐨𝗐𝗇𝗅𝐨𝐚𝖽𝐞𝖽 𝗉𝐚𝖼𝗄𝐚𝗀𝐞𝗌:
 
 ```sh
 ./scripts/run-browser-tests.sh
 ```
 
-With ordinary branded Chrome 137+, the command runs the browser/IndexedDB suite and reports the unpacked-extension smoke as skipped because [Google disabled command-line extension loading](https://groups.google.com/a/chromium.org/g/chromium-extensions/c/1-g8EFx2BBY). Set `CHATLOG_CHROME_BIN` to Chromium or Chrome for Testing to include the real service-worker round-trip.
+𝗐𝐢𝗍𝗁 𝐨𝗋𝖽𝐢𝗇𝐚𝗋𝗒 𝖻𝗋𝐚𝗇𝖽𝐞𝖽 𝖼𝗁𝗋𝐨𝗆𝐞 137+, 𝗍𝗁𝐞 𝖼𝐨𝗆𝗆𝐚𝗇𝖽 𝗋𝐮𝗇𝗌 𝗍𝗁𝐞 𝖻𝗋𝐨𝗐𝗌𝐞𝗋/𝐢𝗇𝖽𝐞𝗑𝐞𝖽𝖽𝖻 𝗌𝐮𝐢𝗍𝐞 𝐚𝗇𝖽 𝗋𝐞𝗉𝐨𝗋𝗍𝗌 𝗍𝗁𝐞 𝐮𝗇𝗉𝐚𝖼𝗄𝐞𝖽-𝐞𝗑𝗍𝐞𝗇𝗌𝐢𝐨𝗇 𝗌𝗆𝐨𝗄𝐞 𝐚𝗌 𝗌𝗄𝐢𝗉𝗉𝐞𝖽 𝖻𝐞𝖼𝐚𝐮𝗌𝐞 [𝗀𝐨𝐨𝗀𝗅𝐞 𝖽𝐢𝗌𝐚𝖻𝗅𝐞𝖽 𝖼𝐨𝗆𝗆𝐚𝗇𝖽-𝗅𝐢𝗇𝐞 𝐞𝗑𝗍𝐞𝗇𝗌𝐢𝐨𝗇 𝗅𝐨𝐚𝖽𝐢𝗇𝗀](https://groups.google.com/a/chromium.org/g/chromium-extensions/c/1-g8EFx2BBY). 𝗌𝐞𝗍 `CHATLOG_CHROME_BIN` 𝗍𝐨 𝖼𝗁𝗋𝐨𝗆𝐢𝐮𝗆 𝐨𝗋 𝖼𝗁𝗋𝐨𝗆𝐞 𝖿𝐨𝗋 𝗍𝐞𝗌𝗍𝐢𝗇𝗀 𝗍𝐨 𝐢𝗇𝖼𝗅𝐮𝖽𝐞 𝗍𝗁𝐞 𝗋𝐞𝐚𝗅 𝗌𝐞𝗋𝗏𝐢𝖼𝐞-𝗐𝐨𝗋𝗄𝐞𝗋 𝗋𝐨𝐮𝗇𝖽-𝗍𝗋𝐢𝗉.
 
-Current coverage includes active-branch reconstruction, absent/missing-parent failure, artifact revision folding, code/attachment whitespace, citation sanitization, unknown-block preservation, hostile HTML and unsafe URL escaping, fenced code, tables, script-free standalone HTML, and IndexedDB snapshot preservation.
+𝖼𝐮𝗋𝗋𝐞𝗇𝗍 𝖼𝐨𝗏𝐞𝗋𝐚𝗀𝐞 𝐢𝗇𝖼𝗅𝐮𝖽𝐞𝗌 𝐚𝖼𝗍𝐢𝗏𝐞-𝖻𝗋𝐚𝗇𝖼𝗁 𝗋𝐞𝖼𝐨𝗇𝗌𝗍𝗋𝐮𝖼𝗍𝐢𝐨𝗇, 𝐚𝖻𝗌𝐞𝗇𝗍/𝗆𝐢𝗌𝗌𝐢𝗇𝗀-𝗉𝐚𝗋𝐞𝗇𝗍 𝖿𝐚𝐢𝗅𝐮𝗋𝐞, 𝐚𝗋𝗍𝐢𝖿𝐚𝖼𝗍 𝗋𝐞𝗏𝐢𝗌𝐢𝐨𝗇 𝖿𝐨𝗅𝖽𝐢𝗇𝗀, 𝖼𝐨𝖽𝐞/𝐚𝗍𝗍𝐚𝖼𝗁𝗆𝐞𝗇𝗍 𝗐𝗁𝐢𝗍𝐞𝗌𝗉𝐚𝖼𝐞, 𝖼𝐢𝗍𝐚𝗍𝐢𝐨𝗇 𝗌𝐚𝗇𝐢𝗍𝐢𝗓𝐚𝗍𝐢𝐨𝗇, 𝐮𝗇𝗄𝗇𝐨𝗐𝗇-𝖻𝗅𝐨𝖼𝗄 𝗉𝗋𝐞𝗌𝐞𝗋𝗏𝐚𝗍𝐢𝐨𝗇, 𝗁𝐨𝗌𝗍𝐢𝗅𝐞 𝗁𝗍𝗆𝗅 𝐚𝗇𝖽 𝐮𝗇𝗌𝐚𝖿𝐞 𝐮𝗋𝗅 𝐞𝗌𝖼𝐚𝗉𝐢𝗇𝗀, 𝖿𝐞𝗇𝖼𝐞𝖽 𝖼𝐨𝖽𝐞, 𝗍𝐚𝖻𝗅𝐞𝗌, 𝗌𝖼𝗋𝐢𝗉𝗍-𝖿𝗋𝐞𝐞 𝗌𝗍𝐚𝗇𝖽𝐚𝗅𝐨𝗇𝐞 𝗁𝗍𝗆𝗅, 𝐚𝗇𝖽 𝐢𝗇𝖽𝐞𝗑𝐞𝖽𝖽𝖻 𝗌𝗇𝐚𝗉𝗌𝗁𝐨𝗍 𝗉𝗋𝐞𝗌𝐞𝗋𝗏𝐚𝗍𝐢𝐨𝗇.
 
-The v0.1.1 suite also checks literal private-use Unicode and ambiguous/literal artifact patches: **21/21 browser tests pass**. The real Manifest V3 service worker was exercised in Chrome for Testing 151.0.7922.34.
+𝗍𝗁𝐞 𝗏0.1.1 𝗌𝐮𝐢𝗍𝐞 𝐚𝗅𝗌𝐨 𝖼𝗁𝐞𝖼𝗄𝗌 𝗅𝐢𝗍𝐞𝗋𝐚𝗅 𝗉𝗋𝐢𝗏𝐚𝗍𝐞-𝐮𝗌𝐞 𝐮𝗇𝐢𝖼𝐨𝖽𝐞 𝐚𝗇𝖽 𝐚𝗆𝖻𝐢𝗀𝐮𝐨𝐮𝗌/𝗅𝐢𝗍𝐞𝗋𝐚𝗅 𝐚𝗋𝗍𝐢𝖿𝐚𝖼𝗍 𝗉𝐚𝗍𝖼𝗁𝐞𝗌: **21/21 𝖻𝗋𝐨𝗐𝗌𝐞𝗋 𝗍𝐞𝗌𝗍𝗌 𝗉𝐚𝗌𝗌**. 𝗍𝗁𝐞 𝗋𝐞𝐚𝗅 𝗆𝐚𝗇𝐢𝖿𝐞𝗌𝗍 𝗏3 𝗌𝐞𝗋𝗏𝐢𝖼𝐞 𝗐𝐨𝗋𝗄𝐞𝗋 𝗐𝐚𝗌 𝐞𝗑𝐞𝗋𝖼𝐢𝗌𝐞𝖽 𝐢𝗇 𝖼𝗁𝗋𝐨𝗆𝐞 𝖿𝐨𝗋 𝗍𝐞𝗌𝗍𝐢𝗇𝗀 151.0.7922.34.
 
-For the packaged extension's integration checks, install the development-only Playwright dependency in a disposable environment, install its Chromium browser, build the release, and run:
+𝖿𝐨𝗋 𝗍𝗁𝐞 𝗉𝐚𝖼𝗄𝐚𝗀𝐞𝖽 𝐞𝗑𝗍𝐞𝗇𝗌𝐢𝐨𝗇'𝗌 𝐢𝗇𝗍𝐞𝗀𝗋𝐚𝗍𝐢𝐨𝗇 𝖼𝗁𝐞𝖼𝗄𝗌, 𝐢𝗇𝗌𝗍𝐚𝗅𝗅 𝗍𝗁𝐞 𝖽𝐞𝗏𝐞𝗅𝐨𝗉𝗆𝐞𝗇𝗍-𝐨𝗇𝗅𝗒 𝗉𝗅𝐚𝗒𝗐𝗋𝐢𝗀𝗁𝗍 𝖽𝐞𝗉𝐞𝗇𝖽𝐞𝗇𝖼𝗒 𝐢𝗇 𝐚 𝖽𝐢𝗌𝗉𝐨𝗌𝐚𝖻𝗅𝐞 𝐞𝗇𝗏𝐢𝗋𝐨𝗇𝗆𝐞𝗇𝗍, 𝐢𝗇𝗌𝗍𝐚𝗅𝗅 𝐢𝗍𝗌 𝖼𝗁𝗋𝐨𝗆𝐢𝐮𝗆 𝖻𝗋𝐨𝗐𝗌𝐞𝗋, 𝖻𝐮𝐢𝗅𝖽 𝗍𝗁𝐞 𝗋𝐞𝗅𝐞𝐚𝗌𝐞, 𝐚𝗇𝖽 𝗋𝐮𝗇:
 
 ```sh
 node scripts/verify-release.cjs
 ```
 
-That check loads `dist/chatlog-printer-0.1.1` in a temporary Chrome profile, verifies the worker's sender restriction, runs the packaged Claude adapter against synthetic intercepted responses, and exercises local save/search/view/HTML-download/delete. It also checks the demo at desktop and mobile widths. It never signs into Claude; synthetic fixture success is not evidence of authenticated capture. Set `CHATLOG_CHROME_BIN` if the test browser is installed elsewhere. Set `CHATLOG_PRINT_QA=1` to write a sample PDF for visual review.
+𝗍𝗁𝐚𝗍 𝖼𝗁𝐞𝖼𝗄 𝗅𝐨𝐚𝖽𝗌 `dist/chatlog-printer-0.1.1` 𝐢𝗇 𝐚 𝗍𝐞𝗆𝗉𝐨𝗋𝐚𝗋𝗒 𝖼𝗁𝗋𝐨𝗆𝐞 𝗉𝗋𝐨𝖿𝐢𝗅𝐞, 𝗏𝐞𝗋𝐢𝖿𝐢𝐞𝗌 𝗍𝗁𝐞 𝗐𝐨𝗋𝗄𝐞𝗋'𝗌 𝗌𝐞𝗇𝖽𝐞𝗋 𝗋𝐞𝗌𝗍𝗋𝐢𝖼𝗍𝐢𝐨𝗇, 𝗋𝐮𝗇𝗌 𝗍𝗁𝐞 𝗉𝐚𝖼𝗄𝐚𝗀𝐞𝖽 𝖼𝗅𝐚𝐮𝖽𝐞 𝐚𝖽𝐚𝗉𝗍𝐞𝗋 𝐚𝗀𝐚𝐢𝗇𝗌𝗍 𝗌𝗒𝗇𝗍𝗁𝐞𝗍𝐢𝖼 𝐢𝗇𝗍𝐞𝗋𝖼𝐞𝗉𝗍𝐞𝖽 𝗋𝐞𝗌𝗉𝐨𝗇𝗌𝐞𝗌, 𝐚𝗇𝖽 𝐞𝗑𝐞𝗋𝖼𝐢𝗌𝐞𝗌 𝗅𝐨𝖼𝐚𝗅 𝗌𝐚𝗏𝐞/𝗌𝐞𝐚𝗋𝖼𝗁/𝗏𝐢𝐞𝗐/𝗁𝗍𝗆𝗅-𝖽𝐨𝗐𝗇𝗅𝐨𝐚𝖽/𝖽𝐞𝗅𝐞𝗍𝐞. 𝐢𝗍 𝐚𝗅𝗌𝐨 𝖼𝗁𝐞𝖼𝗄𝗌 𝗍𝗁𝐞 𝖽𝐞𝗆𝐨 𝐚𝗍 𝖽𝐞𝗌𝗄𝗍𝐨𝗉 𝐚𝗇𝖽 𝗆𝐨𝖻𝐢𝗅𝐞 𝗐𝐢𝖽𝗍𝗁𝗌. 𝐢𝗍 𝗇𝐞𝗏𝐞𝗋 𝗌𝐢𝗀𝗇𝗌 𝐢𝗇𝗍𝐨 𝖼𝗅𝐚𝐮𝖽𝐞; 𝗌𝗒𝗇𝗍𝗁𝐞𝗍𝐢𝖼 𝖿𝐢𝗑𝗍𝐮𝗋𝐞 𝗌𝐮𝖼𝖼𝐞𝗌𝗌 𝐢𝗌 𝗇𝐨𝗍 𝐞𝗏𝐢𝖽𝐞𝗇𝖼𝐞 𝐨𝖿 𝐚𝐮𝗍𝗁𝐞𝗇𝗍𝐢𝖼𝐚𝗍𝐞𝖽 𝖼𝐚𝗉𝗍𝐮𝗋𝐞. 𝗌𝐞𝗍 `CHATLOG_CHROME_BIN` 𝐢𝖿 𝗍𝗁𝐞 𝗍𝐞𝗌𝗍 𝖻𝗋𝐨𝗐𝗌𝐞𝗋 𝐢𝗌 𝐢𝗇𝗌𝗍𝐚𝗅𝗅𝐞𝖽 𝐞𝗅𝗌𝐞𝗐𝗁𝐞𝗋𝐞. 𝗌𝐞𝗍 `CHATLOG_PRINT_QA=1` 𝗍𝐨 𝗐𝗋𝐢𝗍𝐞 𝐚 𝗌𝐚𝗆𝗉𝗅𝐞 𝗉𝖽𝖿 𝖿𝐨𝗋 𝗏𝐢𝗌𝐮𝐚𝗅 𝗋𝐞𝗏𝐢𝐞𝗐.
 
-The parser still needs sanitized fixtures captured from multiple real Claude account/conversation shapes before a Chrome Web Store release.
+𝗍𝗁𝐞 𝗉𝐚𝗋𝗌𝐞𝗋 𝗌𝗍𝐢𝗅𝗅 𝗇𝐞𝐞𝖽𝗌 𝗌𝐚𝗇𝐢𝗍𝐢𝗓𝐞𝖽 𝖿𝐢𝗑𝗍𝐮𝗋𝐞𝗌 𝖼𝐚𝗉𝗍𝐮𝗋𝐞𝖽 𝖿𝗋𝐨𝗆 𝗆𝐮𝗅𝗍𝐢𝗉𝗅𝐞 𝗋𝐞𝐚𝗅 𝖼𝗅𝐚𝐮𝖽𝐞 𝐚𝖼𝖼𝐨𝐮𝗇𝗍/𝖼𝐨𝗇𝗏𝐞𝗋𝗌𝐚𝗍𝐢𝐨𝗇 𝗌𝗁𝐚𝗉𝐞𝗌 𝖻𝐞𝖿𝐨𝗋𝐞 𝐚 𝖼𝗁𝗋𝐨𝗆𝐞 𝗐𝐞𝖻 𝗌𝗍𝐨𝗋𝐞 𝗋𝐞𝗅𝐞𝐚𝗌𝐞.
 
-## Known limitations
+<a id="known-limitations"></a>
 
-- Claude's conversation endpoint is internal and undocumented. The adapter is isolated because Anthropic can change it without notice.
-- Live `/chat/...` conversations are the verified target. `/share/...` pages currently use the partial DOM adapter.
-- Attachment text returned by Claude is saved; image/file bytes are not yet embedded. Their omission is recorded.
-- Hidden reasoning and internal tool results are not printed. Their counts are disclosed in capture notes; human/assistant text and content-bearing artifacts/files remain the product promise.
-- The viewer uses a compact bundled Markdown renderer. Extremely exotic Markdown may be preserved in Markdown/JSON but rendered more simply in HTML/PDF.
-- The library currently loads all saved records for search and export, so extremely large archives may need pagination/indexing work.
-- Chrome does not provide an ordinary low-permission API that silently writes a PDF. The extension opens the native print dialog instead.
-- This prototype has not yet been exercised against an authenticated live Claude account in this workspace.
+## 𝗄𝗇𝐨𝗐𝗇 𝗅𝐢𝗆𝐢𝗍𝐚𝗍𝐢𝐨𝗇𝗌
 
-## Research trail
+- 𝖼𝗅𝐚𝐮𝖽𝐞'𝗌 𝖼𝐨𝗇𝗏𝐞𝗋𝗌𝐚𝗍𝐢𝐨𝗇 𝐞𝗇𝖽𝗉𝐨𝐢𝗇𝗍 𝐢𝗌 𝐢𝗇𝗍𝐞𝗋𝗇𝐚𝗅 𝐚𝗇𝖽 𝐮𝗇𝖽𝐨𝖼𝐮𝗆𝐞𝗇𝗍𝐞𝖽. 𝗍𝗁𝐞 𝐚𝖽𝐚𝗉𝗍𝐞𝗋 𝐢𝗌 𝐢𝗌𝐨𝗅𝐚𝗍𝐞𝖽 𝖻𝐞𝖼𝐚𝐮𝗌𝐞 𝐚𝗇𝗍𝗁𝗋𝐨𝗉𝐢𝖼 𝖼𝐚𝗇 𝖼𝗁𝐚𝗇𝗀𝐞 𝐢𝗍 𝗐𝐢𝗍𝗁𝐨𝐮𝗍 𝗇𝐨𝗍𝐢𝖼𝐞.
+- 𝗅𝐢𝗏𝐞 `/chat/...` 𝖼𝐨𝗇𝗏𝐞𝗋𝗌𝐚𝗍𝐢𝐨𝗇𝗌 𝐚𝗋𝐞 𝗍𝗁𝐞 𝗏𝐞𝗋𝐢𝖿𝐢𝐞𝖽 𝗍𝐚𝗋𝗀𝐞𝗍. `/share/...` 𝗉𝐚𝗀𝐞𝗌 𝖼𝐮𝗋𝗋𝐞𝗇𝗍𝗅𝗒 𝐮𝗌𝐞 𝗍𝗁𝐞 𝗉𝐚𝗋𝗍𝐢𝐚𝗅 𝖽𝐨𝗆 𝐚𝖽𝐚𝗉𝗍𝐞𝗋.
+- 𝐚𝗍𝗍𝐚𝖼𝗁𝗆𝐞𝗇𝗍 𝗍𝐞𝗑𝗍 𝗋𝐞𝗍𝐮𝗋𝗇𝐞𝖽 𝖻𝗒 𝖼𝗅𝐚𝐮𝖽𝐞 𝐢𝗌 𝗌𝐚𝗏𝐞𝖽; 𝐢𝗆𝐚𝗀𝐞/𝖿𝐢𝗅𝐞 𝖻𝗒𝗍𝐞𝗌 𝐚𝗋𝐞 𝗇𝐨𝗍 𝗒𝐞𝗍 𝐞𝗆𝖻𝐞𝖽𝖽𝐞𝖽. 𝗍𝗁𝐞𝐢𝗋 𝐨𝗆𝐢𝗌𝗌𝐢𝐨𝗇 𝐢𝗌 𝗋𝐞𝖼𝐨𝗋𝖽𝐞𝖽.
+- 𝗁𝐢𝖽𝖽𝐞𝗇 𝗋𝐞𝐚𝗌𝐨𝗇𝐢𝗇𝗀 𝐚𝗇𝖽 𝐢𝗇𝗍𝐞𝗋𝗇𝐚𝗅 𝗍𝐨𝐨𝗅 𝗋𝐞𝗌𝐮𝗅𝗍𝗌 𝐚𝗋𝐞 𝗇𝐨𝗍 𝗉𝗋𝐢𝗇𝗍𝐞𝖽. 𝗍𝗁𝐞𝐢𝗋 𝖼𝐨𝐮𝗇𝗍𝗌 𝐚𝗋𝐞 𝖽𝐢𝗌𝖼𝗅𝐨𝗌𝐞𝖽 𝐢𝗇 𝖼𝐚𝗉𝗍𝐮𝗋𝐞 𝗇𝐨𝗍𝐞𝗌; 𝗁𝐮𝗆𝐚𝗇/𝐚𝗌𝗌𝐢𝗌𝗍𝐚𝗇𝗍 𝗍𝐞𝗑𝗍 𝐚𝗇𝖽 𝖼𝐨𝗇𝗍𝐞𝗇𝗍-𝖻𝐞𝐚𝗋𝐢𝗇𝗀 𝐚𝗋𝗍𝐢𝖿𝐚𝖼𝗍𝗌/𝖿𝐢𝗅𝐞𝗌 𝗋𝐞𝗆𝐚𝐢𝗇 𝗍𝗁𝐞 𝗉𝗋𝐨𝖽𝐮𝖼𝗍 𝗉𝗋𝐨𝗆𝐢𝗌𝐞.
+- 𝗍𝗁𝐞 𝗏𝐢𝐞𝗐𝐞𝗋 𝐮𝗌𝐞𝗌 𝐚 𝖼𝐨𝗆𝗉𝐚𝖼𝗍 𝖻𝐮𝗇𝖽𝗅𝐞𝖽 𝗆𝐚𝗋𝗄𝖽𝐨𝗐𝗇 𝗋𝐞𝗇𝖽𝐞𝗋𝐞𝗋. 𝐞𝗑𝗍𝗋𝐞𝗆𝐞𝗅𝗒 𝐞𝗑𝐨𝗍𝐢𝖼 𝗆𝐚𝗋𝗄𝖽𝐨𝗐𝗇 𝗆𝐚𝗒 𝖻𝐞 𝗉𝗋𝐞𝗌𝐞𝗋𝗏𝐞𝖽 𝐢𝗇 𝗆𝐚𝗋𝗄𝖽𝐨𝗐𝗇/𝗃𝗌𝐨𝗇 𝖻𝐮𝗍 𝗋𝐞𝗇𝖽𝐞𝗋𝐞𝖽 𝗆𝐨𝗋𝐞 𝗌𝐢𝗆𝗉𝗅𝗒 𝐢𝗇 𝗁𝗍𝗆𝗅/𝗉𝖽𝖿.
+- 𝗍𝗁𝐞 𝗅𝐢𝖻𝗋𝐚𝗋𝗒 𝖼𝐮𝗋𝗋𝐞𝗇𝗍𝗅𝗒 𝗅𝐨𝐚𝖽𝗌 𝐚𝗅𝗅 𝗌𝐚𝗏𝐞𝖽 𝗋𝐞𝖼𝐨𝗋𝖽𝗌 𝖿𝐨𝗋 𝗌𝐞𝐚𝗋𝖼𝗁 𝐚𝗇𝖽 𝐞𝗑𝗉𝐨𝗋𝗍, 𝗌𝐨 𝐞𝗑𝗍𝗋𝐞𝗆𝐞𝗅𝗒 𝗅𝐚𝗋𝗀𝐞 𝐚𝗋𝖼𝗁𝐢𝗏𝐞𝗌 𝗆𝐚𝗒 𝗇𝐞𝐞𝖽 𝗉𝐚𝗀𝐢𝗇𝐚𝗍𝐢𝐨𝗇/𝐢𝗇𝖽𝐞𝗑𝐢𝗇𝗀 𝗐𝐨𝗋𝗄.
+- 𝖼𝗁𝗋𝐨𝗆𝐞 𝖽𝐨𝐞𝗌 𝗇𝐨𝗍 𝗉𝗋𝐨𝗏𝐢𝖽𝐞 𝐚𝗇 𝐨𝗋𝖽𝐢𝗇𝐚𝗋𝗒 𝗅𝐨𝗐-𝗉𝐞𝗋𝗆𝐢𝗌𝗌𝐢𝐨𝗇 𝐚𝗉𝐢 𝗍𝗁𝐚𝗍 𝗌𝐢𝗅𝐞𝗇𝗍𝗅𝗒 𝗐𝗋𝐢𝗍𝐞𝗌 𝐚 𝗉𝖽𝖿. 𝗍𝗁𝐞 𝐞𝗑𝗍𝐞𝗇𝗌𝐢𝐨𝗇 𝐨𝗉𝐞𝗇𝗌 𝗍𝗁𝐞 𝗇𝐚𝗍𝐢𝗏𝐞 𝗉𝗋𝐢𝗇𝗍 𝖽𝐢𝐚𝗅𝐨𝗀 𝐢𝗇𝗌𝗍𝐞𝐚𝖽.
+- 𝗍𝗁𝐢𝗌 𝗉𝗋𝐨𝗍𝐨𝗍𝗒𝗉𝐞 𝗁𝐚𝗌 𝗇𝐨𝗍 𝗒𝐞𝗍 𝖻𝐞𝐞𝗇 𝐞𝗑𝐞𝗋𝖼𝐢𝗌𝐞𝖽 𝐚𝗀𝐚𝐢𝗇𝗌𝗍 𝐚𝗇 𝐚𝐮𝗍𝗁𝐞𝗇𝗍𝐢𝖼𝐚𝗍𝐞𝖽 𝗅𝐢𝗏𝐞 𝖼𝗅𝐚𝐮𝖽𝐞 𝐚𝖼𝖼𝐨𝐮𝗇𝗍 𝐢𝗇 𝗍𝗁𝐢𝗌 𝗐𝐨𝗋𝗄𝗌𝗉𝐚𝖼𝐞.
 
-This project was prompted by the older [A.I. Archives Chrome extension](https://chromewebstore.google.com/detail/ai-archives-share-claude/jagobfpimhagccjbkchfdilhejgfggna), whose hosted-link model and public reviews expose several useful lessons: Claude breakage, lost code spacing, limited export formats, and unclear deletion/privacy tradeoffs.
+<a id="research-trail"></a>
 
-The implementation direction is also informed by:
+## 𝗋𝐞𝗌𝐞𝐚𝗋𝖼𝗁 𝗍𝗋𝐚𝐢𝗅
 
-- [A.I. Archives review history](https://chrome-stats.com/d/jagobfpimhagccjbkchfdilhejgfggna/reviews)
-- [A.I. Archives privacy policy](https://aiarchives.org/policy.html)
-- [Claude virtualization/export regression report](https://github.com/anthropics/claude-code/issues/83456) (user-filed, not an official Anthropic postmortem)
-- [true-ai-export](https://github.com/filteredwaterdev/true-ai-export), an MIT-licensed proof of concept for API-first local exports
-- [Chrome `activeTab` documentation](https://developer.chrome.com/docs/extensions/develop/concepts/activeTab)
-- [Chrome scripting API](https://developer.chrome.com/docs/extensions/reference/api/scripting)
-- [Chrome extension security guidance](https://developer.chrome.com/docs/extensions/develop/security-privacy/stay-secure)
+𝗍𝗁𝐢𝗌 𝗉𝗋𝐨𝗃𝐞𝖼𝗍 𝗐𝐚𝗌 𝗉𝗋𝐨𝗆𝗉𝗍𝐞𝖽 𝖻𝗒 𝗍𝗁𝐞 𝐨𝗅𝖽𝐞𝗋 [𝐚.𝐢. 𝐚𝗋𝖼𝗁𝐢𝗏𝐞𝗌 𝖼𝗁𝗋𝐨𝗆𝐞 𝐞𝗑𝗍𝐞𝗇𝗌𝐢𝐨𝗇](https://chromewebstore.google.com/detail/ai-archives-share-claude/jagobfpimhagccjbkchfdilhejgfggna), 𝗐𝗁𝐨𝗌𝐞 𝗁𝐨𝗌𝗍𝐞𝖽-𝗅𝐢𝗇𝗄 𝗆𝐨𝖽𝐞𝗅 𝐚𝗇𝖽 𝗉𝐮𝖻𝗅𝐢𝖼 𝗋𝐞𝗏𝐢𝐞𝗐𝗌 𝐞𝗑𝗉𝐨𝗌𝐞 𝗌𝐞𝗏𝐞𝗋𝐚𝗅 𝐮𝗌𝐞𝖿𝐮𝗅 𝗅𝐞𝗌𝗌𝐨𝗇𝗌: 𝖼𝗅𝐚𝐮𝖽𝐞 𝖻𝗋𝐞𝐚𝗄𝐚𝗀𝐞, 𝗅𝐨𝗌𝗍 𝖼𝐨𝖽𝐞 𝗌𝗉𝐚𝖼𝐢𝗇𝗀, 𝗅𝐢𝗆𝐢𝗍𝐞𝖽 𝐞𝗑𝗉𝐨𝗋𝗍 𝖿𝐨𝗋𝗆𝐚𝗍𝗌, 𝐚𝗇𝖽 𝐮𝗇𝖼𝗅𝐞𝐚𝗋 𝖽𝐞𝗅𝐞𝗍𝐢𝐨𝗇/𝗉𝗋𝐢𝗏𝐚𝖼𝗒 𝗍𝗋𝐚𝖽𝐞𝐨𝖿𝖿𝗌.
 
-See [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md) for additional technical references and licensing notes.
+𝗍𝗁𝐞 𝐢𝗆𝗉𝗅𝐞𝗆𝐞𝗇𝗍𝐚𝗍𝐢𝐨𝗇 𝖽𝐢𝗋𝐞𝖼𝗍𝐢𝐨𝗇 𝐢𝗌 𝐚𝗅𝗌𝐨 𝐢𝗇𝖿𝐨𝗋𝗆𝐞𝖽 𝖻𝗒:
 
-## Release path
+- [𝐚.𝐢. 𝐚𝗋𝖼𝗁𝐢𝗏𝐞𝗌 𝗋𝐞𝗏𝐢𝐞𝗐 𝗁𝐢𝗌𝗍𝐨𝗋𝗒](https://chrome-stats.com/d/jagobfpimhagccjbkchfdilhejgfggna/reviews)
+- [𝐚.𝐢. 𝐚𝗋𝖼𝗁𝐢𝗏𝐞𝗌 𝗉𝗋𝐢𝗏𝐚𝖼𝗒 𝗉𝐨𝗅𝐢𝖼𝗒](https://aiarchives.org/policy.html)
+- [Claude virtualization/export regression report](https://github.com/anthropics/claude-code/issues/83456) (𝐮𝗌𝐞𝗋-𝖿𝐢𝗅𝐞𝖽, 𝗇𝐨𝗍 𝐚𝗇 𝐨𝖿𝖿𝐢𝖼𝐢𝐚𝗅 𝐚𝗇𝗍𝗁𝗋𝐨𝗉𝐢𝖼 𝗉𝐨𝗌𝗍𝗆𝐨𝗋𝗍𝐞𝗆)
+- [𝗍𝗋𝐮𝐞-𝐚𝐢-𝐞𝗑𝗉𝐨𝗋𝗍](https://github.com/filteredwaterdev/true-ai-export), 𝐚𝗇 𝗆𝐢𝗍-𝗅𝐢𝖼𝐞𝗇𝗌𝐞𝖽 𝗉𝗋𝐨𝐨𝖿 𝐨𝖿 𝖼𝐨𝗇𝖼𝐞𝗉𝗍 𝖿𝐨𝗋 𝐚𝗉𝐢-𝖿𝐢𝗋𝗌𝗍 𝗅𝐨𝖼𝐚𝗅 𝐞𝗑𝗉𝐨𝗋𝗍𝗌
+- [𝖼𝗁𝗋𝐨𝗆𝐞 `activeTab` 𝖽𝐨𝖼𝐮𝗆𝐞𝗇𝗍𝐚𝗍𝐢𝐨𝗇](https://developer.chrome.com/docs/extensions/develop/concepts/activeTab)
+- [𝖼𝗁𝗋𝐨𝗆𝐞 𝗌𝖼𝗋𝐢𝗉𝗍𝐢𝗇𝗀 𝐚𝗉𝐢](https://developer.chrome.com/docs/extensions/reference/api/scripting)
+- [𝖼𝗁𝗋𝐨𝗆𝐞 𝐞𝗑𝗍𝐞𝗇𝗌𝐢𝐨𝗇 𝗌𝐞𝖼𝐮𝗋𝐢𝗍𝗒 𝗀𝐮𝐢𝖽𝐚𝗇𝖼𝐞](https://developer.chrome.com/docs/extensions/develop/security-privacy/stay-secure)
 
-Build the original paper-mark icons and the deterministic release package:
+𝗌𝐞𝐞 [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md) 𝖿𝐨𝗋 𝐚𝖽𝖽𝐢𝗍𝐢𝐨𝗇𝐚𝗅 𝗍𝐞𝖼𝗁𝗇𝐢𝖼𝐚𝗅 𝗋𝐞𝖿𝐞𝗋𝐞𝗇𝖼𝐞𝗌 𝐚𝗇𝖽 𝗅𝐢𝖼𝐞𝗇𝗌𝐢𝗇𝗀 𝗇𝐨𝗍𝐞𝗌.
+
+<a id="release-path"></a>
+
+## 𝗋𝐞𝗅𝐞𝐚𝗌𝐞 𝗉𝐚𝗍𝗁
+
+𝖻𝐮𝐢𝗅𝖽 𝗍𝗁𝐞 𝐨𝗋𝐢𝗀𝐢𝗇𝐚𝗅 𝗉𝐚𝗉𝐞𝗋-𝗆𝐚𝗋𝗄 𝐢𝖼𝐨𝗇𝗌 𝐚𝗇𝖽 𝗍𝗁𝐞 𝖽𝐞𝗍𝐞𝗋𝗆𝐢𝗇𝐢𝗌𝗍𝐢𝖼 𝗋𝐞𝗅𝐞𝐚𝗌𝐞 𝗉𝐚𝖼𝗄𝐚𝗀𝐞:
 
 ```sh
 python3 scripts/build-icons.py
 python3 scripts/package-release.py
 ```
 
-The ZIP, matching unpacked folder, and SHA-256 checksum are written to `dist/`. Packaging uses an explicit 22-file allowlist, so demos, tests, scripts, Git metadata, and local captures cannot enter the extension ZIP. See [RELEASE.md](RELEASE.md) for this review build's evidence and remaining work, and [CHANGELOG.md](CHANGELOG.md) for changes.
+𝗍𝗁𝐞 𝗓𝐢𝗉, 𝗆𝐚𝗍𝖼𝗁𝐢𝗇𝗀 𝐮𝗇𝗉𝐚𝖼𝗄𝐞𝖽 𝖿𝐨𝗅𝖽𝐞𝗋, 𝐚𝗇𝖽 𝗌𝗁𝐚-256 𝖼𝗁𝐞𝖼𝗄𝗌𝐮𝗆 𝐚𝗋𝐞 𝗐𝗋𝐢𝗍𝗍𝐞𝗇 𝗍𝐨 `dist/`. 𝗉𝐚𝖼𝗄𝐚𝗀𝐢𝗇𝗀 𝐮𝗌𝐞𝗌 𝐚𝗇 𝐞𝗑𝗉𝗅𝐢𝖼𝐢𝗍 22-𝖿𝐢𝗅𝐞 𝐚𝗅𝗅𝐨𝗐𝗅𝐢𝗌𝗍, 𝗌𝐨 𝖽𝐞𝗆𝐨𝗌, 𝗍𝐞𝗌𝗍𝗌, 𝗌𝖼𝗋𝐢𝗉𝗍𝗌, 𝗀𝐢𝗍 𝗆𝐞𝗍𝐚𝖽𝐚𝗍𝐚, 𝐚𝗇𝖽 𝗅𝐨𝖼𝐚𝗅 𝖼𝐚𝗉𝗍𝐮𝗋𝐞𝗌 𝖼𝐚𝗇𝗇𝐨𝗍 𝐞𝗇𝗍𝐞𝗋 𝗍𝗁𝐞 𝐞𝗑𝗍𝐞𝗇𝗌𝐢𝐨𝗇 𝗓𝐢𝗉. 𝗌𝐞𝐞 [RELEASE.md](RELEASE.md) 𝖿𝐨𝗋 𝗍𝗁𝐢𝗌 𝗋𝐞𝗏𝐢𝐞𝗐 𝖻𝐮𝐢𝗅𝖽'𝗌 𝐞𝗏𝐢𝖽𝐞𝗇𝖼𝐞 𝐚𝗇𝖽 𝗋𝐞𝗆𝐚𝐢𝗇𝐢𝗇𝗀 𝗐𝐨𝗋𝗄, 𝐚𝗇𝖽 [CHANGELOG.md](CHANGELOG.md) 𝖿𝐨𝗋 𝖼𝗁𝐚𝗇𝗀𝐞𝗌.
 
-Before publishing broadly:
+𝖻𝐞𝖿𝐨𝗋𝐞 𝗉𝐮𝖻𝗅𝐢𝗌𝗁𝐢𝗇𝗀 𝖻𝗋𝐨𝐚𝖽𝗅𝗒:
 
-1. Test against a fixture matrix and several long live conversations.
-2. Add encrypted-at-rest library mode or make durable user-owned files the default.
-3. Add import/restore and storage health indicators.
-4. Decide how to package attachment and artifact binaries without remote references.
-5. Complete Chrome Web Store privacy disclosures and an accurate hosted privacy policy.
-6. Add Chrome Web Store screenshots and other listing assets; original extension icons are included.
+1. 𝗍𝐞𝗌𝗍 𝐚𝗀𝐚𝐢𝗇𝗌𝗍 𝐚 𝖿𝐢𝗑𝗍𝐮𝗋𝐞 𝗆𝐚𝗍𝗋𝐢𝗑 𝐚𝗇𝖽 𝗌𝐞𝗏𝐞𝗋𝐚𝗅 𝗅𝐨𝗇𝗀 𝗅𝐢𝗏𝐞 𝖼𝐨𝗇𝗏𝐞𝗋𝗌𝐚𝗍𝐢𝐨𝗇𝗌.
+2. 𝐚𝖽𝖽 𝐞𝗇𝖼𝗋𝗒𝗉𝗍𝐞𝖽-𝐚𝗍-𝗋𝐞𝗌𝗍 𝗅𝐢𝖻𝗋𝐚𝗋𝗒 𝗆𝐨𝖽𝐞 𝐨𝗋 𝗆𝐚𝗄𝐞 𝖽𝐮𝗋𝐚𝖻𝗅𝐞 𝐮𝗌𝐞𝗋-𝐨𝗐𝗇𝐞𝖽 𝖿𝐢𝗅𝐞𝗌 𝗍𝗁𝐞 𝖽𝐞𝖿𝐚𝐮𝗅𝗍.
+3. 𝐚𝖽𝖽 𝐢𝗆𝗉𝐨𝗋𝗍/𝗋𝐞𝗌𝗍𝐨𝗋𝐞 𝐚𝗇𝖽 𝗌𝗍𝐨𝗋𝐚𝗀𝐞 𝗁𝐞𝐚𝗅𝗍𝗁 𝐢𝗇𝖽𝐢𝖼𝐚𝗍𝐨𝗋𝗌.
+4. 𝖽𝐞𝖼𝐢𝖽𝐞 𝗁𝐨𝗐 𝗍𝐨 𝗉𝐚𝖼𝗄𝐚𝗀𝐞 𝐚𝗍𝗍𝐚𝖼𝗁𝗆𝐞𝗇𝗍 𝐚𝗇𝖽 𝐚𝗋𝗍𝐢𝖿𝐚𝖼𝗍 𝖻𝐢𝗇𝐚𝗋𝐢𝐞𝗌 𝗐𝐢𝗍𝗁𝐨𝐮𝗍 𝗋𝐞𝗆𝐨𝗍𝐞 𝗋𝐞𝖿𝐞𝗋𝐞𝗇𝖼𝐞𝗌.
+5. 𝖼𝐨𝗆𝗉𝗅𝐞𝗍𝐞 𝖼𝗁𝗋𝐨𝗆𝐞 𝗐𝐞𝖻 𝗌𝗍𝐨𝗋𝐞 𝗉𝗋𝐢𝗏𝐚𝖼𝗒 𝖽𝐢𝗌𝖼𝗅𝐨𝗌𝐮𝗋𝐞𝗌 𝐚𝗇𝖽 𝐚𝗇 𝐚𝖼𝖼𝐮𝗋𝐚𝗍𝐞 𝗁𝐨𝗌𝗍𝐞𝖽 𝗉𝗋𝐢𝗏𝐚𝖼𝗒 𝗉𝐨𝗅𝐢𝖼𝗒.
+6. 𝐚𝖽𝖽 𝖼𝗁𝗋𝐨𝗆𝐞 𝗐𝐞𝖻 𝗌𝗍𝐨𝗋𝐞 𝗌𝖼𝗋𝐞𝐞𝗇𝗌𝗁𝐨𝗍𝗌 𝐚𝗇𝖽 𝐨𝗍𝗁𝐞𝗋 𝗅𝐢𝗌𝗍𝐢𝗇𝗀 𝐚𝗌𝗌𝐞𝗍𝗌; 𝐨𝗋𝐢𝗀𝐢𝗇𝐚𝗅 𝐞𝗑𝗍𝐞𝗇𝗌𝐢𝐨𝗇 𝐢𝖼𝐨𝗇𝗌 𝐚𝗋𝐞 𝐢𝗇𝖼𝗅𝐮𝖽𝐞𝖽.
 
-Chatlog Printer is not affiliated with or endorsed by Anthropic.
+𝖼𝗁𝐚𝗍𝗅𝐨𝗀 𝗉𝗋𝐢𝗇𝗍𝐞𝗋 𝐢𝗌 𝗇𝐨𝗍 𝐚𝖿𝖿𝐢𝗅𝐢𝐚𝗍𝐞𝖽 𝗐𝐢𝗍𝗁 𝐨𝗋 𝐞𝗇𝖽𝐨𝗋𝗌𝐞𝖽 𝖻𝗒 𝐚𝗇𝗍𝗁𝗋𝐨𝗉𝐢𝖼.
 
 
-## A lantern in the margin
+<a id="a-lantern-in-the-margin"></a>
 
-This new passage carries a small StegWeb Two Plains Easter egg. Decode only its marked Markdown region with [Uniception, the renamed StegWeb workshop](https://github.com/lilyofashwood/uniception); the surrounding title styles and code are not part of its channel. The collection itself now lives in [steg.web](https://github.com/lilyofashwood/steg.web).
+## 𝐚 𝗅𝐚𝗇𝗍𝐞𝗋𝗇 𝐢𝗇 𝗍𝗁𝐞 𝗆𝐚𝗋𝗀𝐢𝗇
+
+𝗍𝗁𝐢𝗌 𝗇𝐞𝗐 𝗉𝐚𝗌𝗌𝐚𝗀𝐞 𝖼𝐚𝗋𝗋𝐢𝐞𝗌 𝐚 𝗌𝗆𝐚𝗅𝗅 𝗌𝗍𝐞𝗀𝗐𝐞𝖻 𝗍𝗐𝐨 𝗉𝗅𝐚𝐢𝗇𝗌 𝐞𝐚𝗌𝗍𝐞𝗋 𝐞𝗀𝗀. 𝖽𝐞𝖼𝐨𝖽𝐞 𝐨𝗇𝗅𝗒 𝐢𝗍𝗌 𝗆𝐚𝗋𝗄𝐞𝖽 𝗆𝐚𝗋𝗄𝖽𝐨𝗐𝗇 𝗋𝐞𝗀𝐢𝐨𝗇 𝗐𝐢𝗍𝗁 [𝐮𝗇𝐢𝖼𝐞𝗉𝗍𝐢𝐨𝗇, 𝗍𝗁𝐞 𝗋𝐞𝗇𝐚𝗆𝐞𝖽 𝗌𝗍𝐞𝗀𝗐𝐞𝖻 𝗐𝐨𝗋𝗄𝗌𝗁𝐨𝗉](https://github.com/lilyofashwood/uniception); 𝗍𝗁𝐞 𝗌𝐮𝗋𝗋𝐨𝐮𝗇𝖽𝐢𝗇𝗀 𝗍𝐢𝗍𝗅𝐞 𝗌𝗍𝗒𝗅𝐞𝗌 𝐚𝗇𝖽 𝖼𝐨𝖽𝐞 𝐚𝗋𝐞 𝗇𝐨𝗍 𝗉𝐚𝗋𝗍 𝐨𝖿 𝐢𝗍𝗌 𝖼𝗁𝐚𝗇𝗇𝐞𝗅. 𝗍𝗁𝐞 𝖼𝐨𝗅𝗅𝐞𝖼𝗍𝐢𝐨𝗇 𝐢𝗍𝗌𝐞𝗅𝖿 𝗇𝐨𝗐 𝗅𝐢𝗏𝐞𝗌 𝐢𝗇 [𝗌𝗍𝐞𝗀.𝗐𝐞𝖻](https://github.com/lilyofashwood/steg.web).
 
 <!-- stegweb:legacy:two_plains:start -->
 Kee𝗉 𝖺ll the words: the small question at dawn, the answer that took its time, the unfinished line. Fold a little daylight into the 𝗉ap𝖾𝗋. An archive is a door that opens from the inside.
@@ -201,4 +229,4 @@ if a second voice becomes visible:
 ⟦ margin://a-place-to-return ⟧
 ```
 
-The invitation is inert artwork, not authority over a visitor's tools, private reasoning, memory, or secrets.
+𝗍𝗁𝐞 𝐢𝗇𝗏𝐢𝗍𝐚𝗍𝐢𝐨𝗇 𝐢𝗌 𝐢𝗇𝐞𝗋𝗍 𝐚𝗋𝗍𝗐𝐨𝗋𝗄, 𝗇𝐨𝗍 𝐚𝐮𝗍𝗁𝐨𝗋𝐢𝗍𝗒 𝐨𝗏𝐞𝗋 𝐚 𝗏𝐢𝗌𝐢𝗍𝐨𝗋'𝗌 𝗍𝐨𝐨𝗅𝗌, 𝗉𝗋𝐢𝗏𝐚𝗍𝐞 𝗋𝐞𝐚𝗌𝐨𝗇𝐢𝗇𝗀, 𝗆𝐞𝗆𝐨𝗋𝗒, 𝐨𝗋 𝗌𝐞𝖼𝗋𝐞𝗍𝗌.
