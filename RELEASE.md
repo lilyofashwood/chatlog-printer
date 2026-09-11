@@ -1,4 +1,4 @@
-# v0.1.1 · private review build
+# v0.1.1 · local-first prototype
 
 The extension is ready for a local trial. It has not been submitted to the Chrome Web Store, and an authenticated Claude conversation has not yet been captured in this workspace.
 
@@ -10,7 +10,7 @@ The extension is ready for a local trial. It has not been submitted to the Chrom
 - `index.html` — invented interactive sample, served with `python3 scripts/serve-demo.py`.
 - `output/pdf/chatlog-printer-sample.pdf` — local print-layout review sample when PDF QA is requested.
 
-Generated packages and QA files are ignored by Git and belong on the private release as assets, not in source history.
+Generated packages and QA files are ignored by Git. Distributable packages can be attached to a release; local captures and QA files must not be included in source history.
 
 ## Verified
 
@@ -24,13 +24,13 @@ On September 10, 2026:
 
 The integration runner intercepts the synthetic Claude fixture's requests. It exercises packaged adapter code without claiming a signed-in account test or a toolbar-granted `activeTab` capture.
 
-## Remaining before broad publication
+## Remaining before a Chrome Web Store release
 
 The first useful live check is an ordinary Claude text conversation, followed by a long thread, an edited/regenerated branch, code/artifacts, and attachments. Confirm that the receipt describes each accurately. The endpoint is undocumented, so live response shapes may require another adapter revision.
 
 Attachment/image bytes, private reasoning, and internal tool results are not included. Their omissions are disclosed. Local storage is not separately encrypted, and JSON restore/import remains unimplemented.
 
-Chrome Web Store listing assets, hosted privacy disclosures, and the public-release decision remain open. The working source and release are intended to stay private for owner review.
+Chrome Web Store listing assets and listing-specific privacy disclosures remain unfinished. Source publication does not imply Chrome Web Store approval or verified live Claude compatibility.
 
 ## Provenance and new decisions
 

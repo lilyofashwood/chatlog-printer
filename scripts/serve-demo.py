@@ -10,7 +10,8 @@ from urllib.parse import urlsplit
 
 PUBLIC = {"/", "/index.html", "/demo.css", "/demo.js", "/store.js", "/render.js",
           "/archive.html", "/archive.css", "/archive.js", "/transcript.html",
-          "/transcript.css", "/transcript.js", "/icons/icon-48.png"}
+          "/transcript.css", "/transcript.js", "/icons/icon-48.png",
+          "/presentation.js", "/presentation.css"}
 
 
 class DemoHandler(SimpleHTTPRequestHandler):
