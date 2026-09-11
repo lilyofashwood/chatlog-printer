@@ -1,4 +1,4 @@
-# Chatlog Printer
+# 𝖼𝗁𝐚𝗍𝗅𝐨𝗀 𝗉𝗋𝐢𝗇𝗍𝐞𝗋
 
 Chatlog Printer is a local-first Chrome extension for saving Claude's readable active branch and turning it into a clean, printable transcript.
 
@@ -187,7 +187,7 @@ Chatlog Printer is not affiliated with or endorsed by Anthropic.
 
 ## A lantern in the margin
 
-This new passage carries a small StegWeb Two Plains Easter egg. Decode only its marked Markdown region with the companion [StegWeb workshop](https://github.com/lilyofashwood/steg.web); the surrounding title styles and code are not part of its channel.
+This new passage carries a small StegWeb Two Plains Easter egg. Decode only its marked Markdown region with [Uniception, the renamed StegWeb workshop](https://github.com/lilyofashwood/uniception); the surrounding title styles and code are not part of its channel. The collection itself now lives in [steg.web](https://github.com/lilyofashwood/steg.web).
 
 <!-- stegweb:legacy:two_plains:start -->
 Kee𝗉 𝖺ll the words: the small question at dawn, the answer that took its time, the unfinished line. Fold a little daylight into the 𝗉ap𝖾𝗋. An archive is a door that opens from the inside.
