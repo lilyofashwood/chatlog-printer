@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Chatlog Printer</title>
+    <title data-garden-title>Chatlog Printer</title>
     <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="presentation.css">
   </head>
   <body>
     <main class="popup-shell">
@@ -32,11 +33,11 @@
         <p class="receipt-kicker">Capture receipt</p>
         <h2 id="receipt-title">Review before saving</h2>
         <dl class="receipt-facts">
-          <div><dt>Message chain</dt><dd id="receipt-chain"></dd></div>
-          <div><dt>Content fidelity</dt><dd id="receipt-fidelity"></dd></div>
-          <div><dt>Messages found</dt><dd id="receipt-count"></dd></div>
+          <div><dt>Message chain</dt><dd id="receipt-chain" data-literal></dd></div>
+          <div><dt>Content fidelity</dt><dd id="receipt-fidelity" data-literal></dd></div>
+          <div><dt>Messages found</dt><dd id="receipt-count" data-literal></dd></div>
         </dl>
-        <ul id="receipt-warnings" class="receipt-warnings"></ul>
+        <ul id="receipt-warnings" class="receipt-warnings" data-literal></ul>
         <div class="receipt-actions">
           <button id="receipt-save" class="button button-primary" type="button">Save marked capture</button>
           <button id="receipt-cancel" class="button button-secondary" type="button">Discard</button>
@@ -60,5 +61,6 @@
     </main>
 
     <script src="popup.js"></script>
+    <script src="presentation.js"></script>
   </body>
 </html>

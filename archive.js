@@ -33,7 +33,7 @@
         }
       }
     }
-    return "No text preview is available for this capture.";
+    return "";
   }
 
   function downloadConversation(record, format) {
@@ -82,9 +82,15 @@
     card.dataset.completeness = completeness;
     const completenessText = completeness === "complete" ? "Verified text" : completeness === "partial" ? "Unverified" : "Omissions";
     fragment.querySelector(".completeness-badge").textContent = record.revisionOf ? `${completenessText} snapshot` : completenessText;
-    fragment.querySelector(".card-title").textContent = record.title || "Untitled conversation";
+    const titleNode = fragment.querySelector(".card-title");
+    if (!record.title) titleNode.removeAttribute("data-literal");
+    titleNode.textContent = record.title || "Untitled conversation";
     const snapshotLabel = record.revisionOf ? " · preserved snapshot" : "";
-    fragment.querySelector(".card-summary").textContent = `${record.messages?.length || 0} messages${snapshotLabel} · ${firstReadableText(record)}`;
+    fragment.querySelector(".card-statistics").textContent = `${record.messages?.length || 0} messages${snapshotLabel} · `;
+    const preview = firstReadableText(record);
+    const previewNode = fragment.querySelector(".card-preview");
+    if (!preview) previewNode.removeAttribute("data-literal");
+    previewNode.textContent = preview || "No text preview is available for this capture.";
     const warning = record.diagnostics?.warnings?.[0];
     const warningNode = fragment.querySelector(".card-warning");
     if (warning) {

@@ -13,6 +13,7 @@ FILES = (
     "manifest.json", "background.js", "capture-core.js", "page-capture.js", "store.js", "render.js",
     "popup.html", "popup.css", "popup.js", "archive.html", "archive.css", "archive.js",
     "transcript.html", "transcript.css", "transcript.js", "PRIVACY.md", "LICENSE", "ACKNOWLEDGEMENTS.md",
+    "presentation.js", "presentation.css",
     "icons/icon-16.png", "icons/icon-32.png", "icons/icon-48.png", "icons/icon-128.png",
 )
 

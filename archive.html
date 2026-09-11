@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Local library · Chatlog Printer</title>
+    <title data-garden-title>Local library · Chatlog Printer</title>
     <link rel="stylesheet" href="archive.css">
+    <link rel="stylesheet" href="presentation.css">
   </head>
   <body>
     <header class="site-header">
@@ -23,7 +24,7 @@
         <label class="search-field">
           <span class="sr-only">Search saved conversations</span>
           <span aria-hidden="true">⌕</span>
-          <input id="search-input" type="search" autocomplete="off" placeholder="Search titles and transcript text">
+          <input id="search-input" type="search" autocomplete="off" placeholder="Search titles and transcript text" aria-label="Search saved conversations" data-garden-placeholder>
         </label>
         <p id="library-count" class="library-count" aria-live="polite"></p>
       </section>
@@ -50,9 +51,9 @@
             <span class="provider-badge">Claude</span>
             <span class="completeness-badge"></span>
           </div>
-          <h2 class="card-title"></h2>
-          <p class="card-summary"></p>
-          <p class="card-warning" hidden></p>
+          <h2 class="card-title" data-literal></h2>
+          <p class="card-summary"><span class="card-statistics"></span><span class="card-preview" data-literal></span></p>
+          <p class="card-warning" data-literal hidden></p>
           <p class="card-date"></p>
         </div>
         <div class="card-actions">
@@ -70,5 +71,6 @@
     <script src="store.js"></script>
     <script src="render.js"></script>
     <script src="archive.js"></script>
+    <script src="presentation.js"></script>
   </body>
 </html>

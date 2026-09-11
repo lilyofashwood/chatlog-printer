@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Chatlog Printer",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Save Claude's active conversation branch locally and print clean, portable transcripts.",
   "incognito": "not_allowed",
   "minimum_chrome_version": "102",

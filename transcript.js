@@ -33,7 +33,8 @@
       if (!conversation) {
         throw new Error("This saved conversation was not found. It may have been deleted or belong to another Chrome profile.");
       }
-      document.title = `${conversation.title || "Transcript"} · Chatlog Printer`;
+      // The saved title is literal; only the authored application suffix is decoration.
+      document.title = `${conversation.title || "Transcript"} · 𝖼𝗁𝐚𝗍𝗅𝐨𝗀 𝗉𝗋𝐢𝗇𝗍𝐞𝗋`;
       root.innerHTML = ChatlogRender.renderConversationBody(conversation);
       loadingStatus.hidden = true;
       if (parameters.get("print") === "1") {

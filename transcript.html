@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Transcript · Chatlog Printer</title>
+    <title>𝗍𝗋𝐚𝗇𝗌𝖼𝗋𝐢𝗉𝗍 · 𝖼𝗁𝐚𝗍𝗅𝐨𝗀 𝗉𝗋𝐢𝗇𝗍𝐞𝗋</title>
     <link rel="stylesheet" href="transcript.css">
+    <link rel="stylesheet" href="presentation.css">
   </head>
   <body>
     <header class="transcript-toolbar" aria-label="Transcript controls">
@@ -18,11 +19,12 @@
     </header>
 
     <p id="loading-status" class="loading" role="status" aria-live="polite">Preparing transcript…</p>
-    <main id="transcript-root" class="transcript-root">
+    <main id="transcript-root" class="transcript-root" data-literal>
     </main>
 
     <script src="store.js"></script>
     <script src="render.js"></script>
     <script src="transcript.js"></script>
+    <script src="presentation.js"></script>
   </body>
 </html>

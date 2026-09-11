@@ -46,7 +46,7 @@ async function main() {
     const extensionUrl = `chrome-extension://${extensionId}`;
     const library = await context.newPage();
     await library.goto(`${extensionUrl}/archive.html`);
-    await library.getByText("No conversations saved yet.").waitFor();
+    await library.getByRole("heading", { name: "No conversations saved yet." }).waitFor();
     const denial = await library.evaluate(() => chrome.runtime.sendMessage({ type: "capture-conversation", tabId: 1 }));
     assert.equal(denial.ok, false);
     assert.match(denial.error, /not allowed to request a capture/);
@@ -91,7 +91,7 @@ async function main() {
     await library.reload();
     await library.getByRole("heading", { name: fixture.name }).waitFor();
     await library.getByRole("searchbox").fill("𝓲𝓷𝓴");
-    await library.getByText("1 matching · 1 saved capture").waitFor();
+    await library.waitForFunction(() => document.querySelector("#library-count").textContent.normalize("NFKC") === "1 matching · 1 saved capture");
     await library.getByRole("link", { name: `View or print ${fixture.name}` }).click();
     await library.locator(".turn").first().waitFor();
     assert.equal(await library.locator(".turn").count(), 2);
@@ -107,7 +107,7 @@ async function main() {
     await library.goto(`${extensionUrl}/archive.html`);
     library.once("dialog", (dialog) => dialog.accept());
     await library.getByRole("button", { name: `Delete ${fixture.name} from this Chrome profile` }).click();
-    await library.getByText("No conversations saved yet.").waitFor();
+    await library.getByRole("heading", { name: "No conversations saved yet." }).waitFor();
     assert.equal(await library.evaluate((id) => ChatlogStore.getConversation(id), saved.id), undefined);
     console.log("PASS exact release saves, searches, views, downloads safe HTML, and deletes a synthetic transcript");
 
